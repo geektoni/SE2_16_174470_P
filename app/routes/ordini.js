@@ -12,22 +12,18 @@ app.param('giorno', function(req, res, next, giorno) {
 });
 
 router.get('/:giorno/', function(req, res, next) {
+});
+
+
+router.post('/:giorno/', function(req, res, next) {
 
 });
 
-router.get('/:giorno/:categoria', function(req, res, next) {
+router.put('/:giorno/', function(req, res, next) {
 
 });
 
-router.post('/:giorno/:categoria', function(req, res, next) {
-
-});
-
-router.put('/:giorno/:categoria', function(req, res, next) {
-
-});
-
-router.delete('/:giorno/:categoria/:pasto_id', function(req, res, next) {
+router.delete('/:giorno/', function(req, res, next) {
 
 });
 
