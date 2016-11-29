@@ -1,6 +1,6 @@
-function categoria (id, nome, qnta, avvertenze) {
+function categoria (nome) {
   this.nome = nome;
   this.errors = [];
 }
 
-exports.categoria = createCategoria;
+module.exports = categoria;
