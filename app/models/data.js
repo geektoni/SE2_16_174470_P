@@ -6,4 +6,4 @@ function data (giorno, settimana, mese, anno) {
   this.errors = [];
 }
 
-exports.data = createData;
+module.exports = data;

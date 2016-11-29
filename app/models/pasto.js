@@ -8,4 +8,4 @@ function pasto (id, nome, descrizione, fotoURL, videoURL, categoria) {
   this.errors = [];
 }
 
-exports.pasto = createPasto;
+module.exports = pasto;
