@@ -9,3 +9,5 @@ date.push(data_test);
 function getDataBySettimana(settimana) {
   return date[settimana - 1];
 }
+
+exports.getDataBySettimana = getDataBySettimana;
