@@ -1,8 +1,12 @@
-// var pastiDA = require('../dataAccess/pastiDA.js');
-// var dataDA = require('../dataAccess/dataDA.js');
+var pastiDA = require('../dataAccess/pastiDA.js');
+var dataDA = require('../dataAccess/dataDA.js');
 
-var pasto_test =
+var menu = [];
 
-var menu = [
-  {"01012017": }
-]
+function addScelta (pasto,data) {
+  var newScelta = {
+    dataDA.toString(data) : pastiDA.getPastoById(pasto.id);
+  }
+
+  menu.push(newScelta);
+}

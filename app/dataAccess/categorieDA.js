@@ -2,19 +2,14 @@ var categoriaModel = require('/models/categoria.js');
 
 var categorie = [];
 
-var primo;
-primo.id = 1;
-primo.name = 'Primo';
+var primo = new categoria(1,'Primo');
+var secondo = new categoria(2,'Secondo');
 
 var cat1 = {
   "Primo": primo;
 }
 
-var secondo;
-secondo.id = 2;
-secondo.name = 'Secondo';
-
-var cat1 = {
+var cat2 = {
   "Secondo": secondo;
 }
 

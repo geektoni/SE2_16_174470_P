@@ -1,8 +1,11 @@
-var pastoModel = requre('../models/pasto.js');
+var pastoModel = require('../models/pasto.js');
+
+var categoriaDA = require('categoriaDA.js');
 
 var pasti = [];
 
-var pasto_test = pastoModel.createPasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL',);
+var categoria_test = categoriaDA.getCategoriaByName('Primo');
+var pasto_test = new pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test);
 
 pasti.push(pasto_test);
 
