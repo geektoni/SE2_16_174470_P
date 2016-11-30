@@ -6,7 +6,12 @@ var menuController = require('../controllers/menuController.js');
 
 /* GET request route. */
 router.get('/', function(req, res, next) {
-    indexController.homepage(req,res);
+    menuController.indexGiorni();
 });
 
+/* GET request route. */
+router.get('/:data', function(req, res, next) {
+    var data;
+    menuController.indexPastiByGiorno(data);
+});
 module.exports = router;

@@ -5,4 +5,4 @@ function user (id, nome, cognome) {
   this.errors = [];
 }
 
-exports.user = createUser;
+module.exports = user;

@@ -6,4 +6,4 @@ function ingrediente (id, nome, qnta, avvertenze) {
   this.errors = [];
 }
 
-exports.ingrediente = createIngrediente;
+module.exports = ingrediente;

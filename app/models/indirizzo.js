@@ -6,4 +6,4 @@ function indirizzo (citta, via, numero, cap) {
   this.errors = [];
 }
 
-exports.indirizzo = createIndirizzo;
+module.exports = indirizzo;
