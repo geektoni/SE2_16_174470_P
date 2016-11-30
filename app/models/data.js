@@ -1,6 +1,6 @@
-function data (giorno, settimana, mese, anno) {
-  this.giorno = giorno;
+function data (settimana, giorno, mese, anno) {
   this.settimana = settimana;
+  this.giorno = giorno;
   this.mese = mese;
   this. anno = anno;
   this.errors = [];
