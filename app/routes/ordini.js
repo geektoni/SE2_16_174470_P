@@ -10,19 +10,19 @@ app.param('giorno', function(req, res, next, giorno) {
 });
 
 router.get('/:giorno/edit', function(req, res, next) {
-  ordiniController.editOrdine(ordine);
+  ordiniController.editOrdine(req,res);
 });
 
 router.post('/:giorno/create', function(req, res, next) {
-  ordiniController.createOrdine(ordine);
+  ordiniController.createOrdine(req,res);
 });
 
 router.put('/:giorno/update', function(req, res, next) {
-  ordiniController.updateOrdine(ordine);
+  ordiniController.updateOrdine(req,res);
 });
 
 router.get('/:giorno/riepilogo', function(req, res, next) {
-  ordiniController.getRiepilogo(ordine);
+  ordiniController.getRiepilogo(req,res);
 });
 
 

@@ -9,13 +9,14 @@ var menuDA = require('../dataAccess/menuDA;js');
   // del DB
 // }
 
-function indexGiorni (data) {
+function indexGiorni (req,res) {
   var giorni = menuDA.getAllGiorni(data);
-  return giorni;
+  //return giorni;
 }
 
 /*
 */
-function indexPastiByGiorno (data) {
+function indexPastiByGiorno (req,res) {
+  //oggetto sessione per quel giorno
   var menu_del_giorno = menuDA.getGiorniByData(data)
 }

@@ -2,25 +2,25 @@ var ordiniDA = require('../dataAccess/ordiniDA.js')
 
 /*
 */
-function createOrdine (ordine) {
+function createOrdine (req,res) {
   ordiniDA.addOrdine(ordine);
 }
 
 /*
 */
-function editOrdine (ordine) {
+function editOrdine (req,res) {
   // request.redirect('/menu/:giorno');
 }
 
 /*
 */
-function updateOrdine (ordine) {
+function updateOrdine (req,res) {
   ordiniDA.updateOrdine(ordine);
 }
 
 /*
 */
-function getRiepilogo (ordine) {
+function getRiepilogo (req,res) {
   ordiniDA.getOrdineByGiorno(giorno);
 }
 
