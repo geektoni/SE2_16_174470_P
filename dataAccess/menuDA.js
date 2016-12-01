@@ -11,16 +11,28 @@ var dateDA = require('../dataAccess/dateDA.js');
 var menu = [];
 
 
+// TEST ----------------------------------------
+// Prende il primo pasto aggiunto
+var new_pasto = pastiDA.getPastoById(1);
+// Prende il primo giorno della settimana specificata
+var new_data = dateDA.getDataBySettimana("1")[0];
+addScelta(new_pasto,new_data);
+console.log(menu);
+
+// ---------------------------------------------
 
 function addScelta (pasto,data) {
+  var new_settimana = data.settimana.toString();
+  var new_giorno = dateDA.toString(data);
   var newScelta = {
-    data.settimana.toString() : {dateDA.toString(data) : pasto},
+    new_data : { new_giorno : pasto},
   }
   menu.push(newScelta);
 }
 
-function getAllGiorni (data) {
-  return data[data.settimana.toString()];
+function getAllGiorni (settimana) {
+  var res = -1;
+
 }
 
 function getPastiByData (data) {
@@ -29,10 +41,7 @@ function getPastiByData (data) {
 }
 
 
-// TEST ----------------------------------------
-// Prende il primo pasto aggiunto
-var new_pasto = pastiDA.getPastoById(1);
-// Prende il primo giorno della settimana specificata
-var new_data = dateDA.getDataBySettimana("1")[0];
-addScelta(new_pasto,new_data);
-// ---------------------------------------------
+
+exports.addScelta = addScelta;
+exports.getAllGiorni = getAllGiorni;
+exports.getPastiByData = getPastiByData;

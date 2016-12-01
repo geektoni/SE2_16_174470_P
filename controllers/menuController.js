@@ -1,4 +1,4 @@
-var menuDA = require('../dataAccess/menuDA;js');
+var menuDA = require('../dataAccess/menuDA.js');
 
 /*
 */
@@ -10,13 +10,22 @@ var menuDA = require('../dataAccess/menuDA;js');
 // }
 
 function indexGiorni (req,res) {
-  var giorni = menuDA.getAllGiorni(data);
-  //return giorni;
+  var settimana = req.params.data;
+	console.log(settimana);
+  var giorni = menuDA.getAllGiorni(settimana);
+  console.log("GG:" + giorni);
+  res.send("");
 }
 
 /*
 */
 function indexPastiByGiorno (req,res) {
   //oggetto sessione per quel giorno
-  var menu_del_giorno = menuDA.getGiorniByData(data)
+  var giorno = req.params.data;
+  var menu_del_giorno = menuDA.getGiorniByData(giorno);
+  console.log(menu_del_giorno);
+  res.send("");
 }
+
+exports.indexGiorni = indexGiorni;
+exports.indexPastiByGiorno = indexPastiByGiorno;

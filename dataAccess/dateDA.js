@@ -1,16 +1,22 @@
-var dataModel = requre('../models/data.js');
+var Data = require('../models/data.js');
 
 var date = [];
 
-var data_test = {"1" :  [ new data(1, 01, 01, 2017),
-                          new data(1, 02, 01, 2017)
+var data_test = {"1" :  [ new Data(1, 01, 01, 2017),
+                          new Data(1, 02, 01, 2017)
                         ]
 };
 
 date.push(data_test);
 
 function getDataBySettimana(settimana) {
-  return date[settimana];
+  var res = -1;
+  for (var i=0; i < date.length; i++){
+	  if (date[i][settimana]){
+		  res = date[i][settimana];
+	  }
+  }
+  return res;
 }
 
 function toString(data) {

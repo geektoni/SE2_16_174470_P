@@ -5,12 +5,13 @@ var menuController = require('../controllers/menuController.js');
 //var ordiniController = require('../controllers/ordiniController.js');
 
 /* GET request route. */
-router.get('/', function(req, res, next) {
-    menuController.indexGiorni(req,res);
+router.get('/settimana/:data', function(req, res, next) {    
+	menuController.indexGiorni(req,res);
+	
 });
 
 /* GET request route. */
-router.get('/:data', function(req, res, next) {
+router.get('/settimana/giorno/:data', function(req, res, next) {
     menuController.indexPastiByGiorno(req,res);
 });
 module.exports = router;
