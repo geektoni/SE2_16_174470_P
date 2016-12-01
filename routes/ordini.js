@@ -6,7 +6,6 @@ var ordiniController = require('../controllers/ordiniController.js');
 app.param('giorno', function(req, res, next, giorno) {
     // Get the day specified by 'giorno' parameter
     next()
-  });
 });
 
 router.get('/:giorno/edit', function(req, res, next) {
