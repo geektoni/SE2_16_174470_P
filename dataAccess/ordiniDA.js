@@ -10,4 +10,4 @@ function getOrdineByGiorno (giorno) {
 
 }
 
-exports.addOrder = addOrder;
+exports.addOrdine = addOrdine;

@@ -1,16 +1,16 @@
-var categoriaModel = require('/models/categoria.js');
+var Categoria = require('../models/categoria.js');
 
 var categorie = [];
 
-var primo = new categoria(1,'Primo');
-var secondo = new categoria(2,'Secondo');
+var primo = new Categoria("Primo");
+var secondo = new Categoria("Secondo");
 
 var cat1 = {
-  "Primo": primo;
+  "Primo": primo
 }
 
 var cat2 = {
-  "Secondo": secondo;
+  "Secondo": secondo
 }
 
 categorie.push(cat1);
