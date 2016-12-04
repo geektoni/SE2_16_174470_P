@@ -17,7 +17,13 @@ categorie.push(cat1);
 categorie.push(cat2);
 
 function getCategoriaByName(nome){
-  return categorie[nome];
+  var res = -1;
+  for (var i = 0; i < categorie.length; i++) {
+    if (categorie[i][nome]){
+      res = categorie[i][nome];
+    }
+  }
+  return res;
 }
 
 exports.getCategoriaByName = getCategoriaByName;
