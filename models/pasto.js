@@ -4,8 +4,8 @@ function pasto (id, nome, descrizione, fotoURL, videoURL, categoria) {
   this.descrizione = descrizione;
   this.fotoURL = fotoURL;
   this.videoURL = videoURL;
-  this.categoria = this.categoria;
+  this.categoria = categoria;
   this.errors = [];
 }
 
-exports.pasto = createPasto;
+module.exports = pasto;
