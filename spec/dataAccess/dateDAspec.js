@@ -30,4 +30,10 @@ describe("Categorie Data Access Test", function(){
     expect(res).not.toEqual(-1);
     expect(res).toEqual(primo);
   });
+
+  it('should return -1 if not found', function() {
+    var res = categorieDA.getCategoriaByName("");
+    expect(res).toEqual(-1);
+  });
+
 });

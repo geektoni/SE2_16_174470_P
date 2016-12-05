@@ -22,7 +22,7 @@ function indexGiorni (req,res) {
 function indexPastiByGiorno (req,res) {
   //oggetto sessione per quel giorno
   var giorno = req.params.data;
-  var menu_del_giorno = menuDA.getGiorniByData(giorno);
+  var menu_del_giorno = menuDA.getPastiByData(giorno);
   console.log(menu_del_giorno);
   res.send("");
 }
