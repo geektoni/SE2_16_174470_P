@@ -101,8 +101,12 @@ function getPastiByGiorno (settimana,giorno) {
   return res;
 }
 
-
+function cleanMenu () {
+  var new_menu = [];
+  menu = new_menu;
+}
 
 exports.addScelta = addScelta;
 exports.getAllGiorni = getAllGiorni;
 exports.getPastiByGiorno = getPastiByGiorno;
+exports.cleanMenu = cleanMenu;

@@ -165,7 +165,12 @@ function getPastoById (pasto) {
   }
   return res;
 }
+function cleanPasti () {
+  var new_pasti = [];
+  pasti = new_pasti;
+}
 
 exports.isValid = isValid;
 exports.addPasto = addPasto;
 exports.getPastoById = getPastoById;
+exports.cleanPasti = cleanPasti;

@@ -103,7 +103,7 @@ function addData(data) {
   new_data[settimana] = data;
 
   if (isValid(data)){
-      if (date.length < 0 || !getSettimana(data)){
+      if (date.length <= 0 || !getSettimana(data)){
         if(!getGiornoBySettimana(settimana,data)) {
           date.push(new_data);
         } else {
@@ -114,6 +114,7 @@ function addData(data) {
         res = true
       }
   }
+  console.log(date);
   return res;
 }
 
@@ -158,8 +159,14 @@ function toString(data) {
   return data;
 }
 
+function cleanDate () {
+  var new_date = [];
+  date = new_date;
+}
+
 exports.isValid = isValid;
 exports.addData = addData;
 exports.getDateBySettimana = getDateBySettimana;
 exports.getGiornoBySettimana = getGiornoBySettimana;
 exports.toString = toString;
+exports.cleanDate = cleanDate;
