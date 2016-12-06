@@ -51,10 +51,9 @@ describe("Categorie Data Access Test", function(){
   // Method addCategoria is not called
   describe('Get Categoria By Name Test', function() {
     var quarto = new Categoria("Quarto");
-    categorieDA.addCategoria(quarto);
 
     it('should get an existent Categoria by its nome', function() {
-
+      categorieDA.addCategoria(quarto);
       var res = categorieDA.getCategoriaByNome(quarto);
 
       expect(res).not.toBe(undefined);
@@ -62,6 +61,7 @@ describe("Categorie Data Access Test", function(){
     });
 
     it('should return false if not found', function() {
+      categorieDA.addCategoria(quarto);
       var res = categorieDA.getCategoriaByNome("");
       expect(res).toEqual(false);
     });

@@ -14,7 +14,7 @@ var pasti = [];
 function validateId (pasto) {
   var res = false;
   var error;
-  
+
   if (pasto.id === ""){
     error = "Id is empty";
     pasto.errors.push(error);
@@ -146,11 +146,11 @@ function isValid(pasto) {
 function addPasto(pasto) {
   var res = false;
   if (isValid(pasto)){
-    for (var i = 0; i < pasti.length; i++) {
-      if(!getPastoById(pasto)) {
-        pasti.push(pasto);
-        res = true;
-      }
+
+    if (pasti.length <= 0 || !getPastoById(pasto)){
+
+      pasti.push(pasto);
+      res = true;
     }
   }
   return res;
@@ -159,8 +159,8 @@ function addPasto(pasto) {
 function getPastoById (pasto) {
   var res = false;
   for (var i = 0; i < pasti.length; i++) {
-    if (pasti[i].id == pasto.id){
-      res = pasti[i] ;
+    if (pasti[i].id === pasto.id){
+      res = pasti[i];
     }
   }
   return res;

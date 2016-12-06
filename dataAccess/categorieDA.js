@@ -32,7 +32,7 @@ function isValid (categoria) {
 function addCategoria(categoria) {
   var res = false;
   if (isValid(categoria)){
-    if (categorie.length < 0 || !getCategoriaByNome(categoria.nome)){
+    if (categorie.length <= 0 || !getCategoriaByNome(categoria.nome)){
       categorie.push(categoria);
       res = true;
     }
