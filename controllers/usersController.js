@@ -1,3 +1,9 @@
+function index (req,res) {
+    res.render('users/index',{
+        user: "Giovanni",
+    })
+}
+
 /*
 */
 function show () {
@@ -6,7 +12,7 @@ function show () {
 
 /*
 */
-function new () {
+function new_ () {
 
 }
 
@@ -33,3 +39,5 @@ function update () {
 function destroy () {
 
 }
+
+exports.index = index;
