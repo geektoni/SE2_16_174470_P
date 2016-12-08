@@ -2,28 +2,62 @@ var Categoria = require('../models/categoria.js');
 
 var categorie = [];
 
-var primo = new Categoria("Primo");
-var secondo = new Categoria("Secondo");
+function validateNome (categoria) {
+  res = false;
+  var error;
 
-var cat1 = {
-  "Primo": primo
+  if (categoria.nome === '') {
+    error = "Nome is empty";
+    categoria.errors.push(error);
+  }
+  if (categoria.nome === undefined) {
+    error = "Nome is undefined";
+    categoria.errors.push(error);
+  }
+  if (categoria.errors.length === 0) {
+    res = true;
+  }
+
+  return res;
 }
 
-var cat2 = {
-  "Secondo": secondo
+function isValid (categoria) {
+  var res = true;
+  if (!validateNome(categoria)){
+    res = false;
+  }
+  return res;
 }
 
-categorie.push(cat1);
-categorie.push(cat2);
+function addCategoria(categoria) {
+  var res = false;
+  if (isValid(categoria)){
+    if (categorie.length <= 0 || !getCategoriaByNome(categoria)){
+      categorie.push(categoria);
+      res = true;
+    }
+  }
 
-function getCategoriaByName(nome){
-  var res = -1;
+  return res;
+}
+
+
+function getCategoriaByNome(categoria){
+  var res = false;
   for (var i = 0; i < categorie.length; i++) {
-    if (categorie[i][nome]){
-      res = categorie[i][nome];
+    if (categorie[i].nome === categoria.nome){
+      res = categorie[i];
     }
   }
   return res;
 }
 
-exports.getCategoriaByName = getCategoriaByName;
+function cleanCategorie () {
+  var new_categorie = [];
+  categorie = new_categorie;
+}
+
+exports.isValid = isValid;
+exports.addCategoria = addCategoria;
+exports.getCategoriaByNome = getCategoriaByNome;
+exports.cleanCategorie = cleanCategorie;
