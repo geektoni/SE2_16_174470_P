@@ -100,29 +100,29 @@ function addData(data) {
   var res = false;
   var settimana = data.settimana.toString();
   var new_data = {};
-  new_data[settimana] = data;
+  new_data[settimana] = [];
+  new_data[settimana].push(data);
 
   if (isValid(data)){
-      if (date.length <= 0 || !getSettimana(data)){
-        if(!getGiornoBySettimana(settimana,data)) {
+      if (date.length <= 0 || !getSettimana(data) ) {
           date.push(new_data);
-        } else {
+          res = true;
+      } else if(!getGiornoBySettimana(settimana,data)) {
           for (var i = 0; i < date.length; i++) {
-            date[i][settimana].push(data);
+              date[i][settimana].push(data);
           }
-        }
-        res = true
+          res = true;
       }
   }
-  console.log(date);
   return res;
 }
 
 function getSettimana(data) {
   res = false;
   for (var i = 0; i < date.length; i++) {
-    if(date[i] === data.settimana.toString()){
-      res = JSON.keys(date[i])[0];
+    var found = Object.keys(date[i])[0];
+    if( found === data.settimana.toString()){
+      res = Object.keys(date[i])[0];
     }
   }
   return res;
@@ -138,8 +138,9 @@ function getDateBySettimana(settimana) {
   return res;
 }
 
-function getGiornoBySettimana(settimana,giorno){
+function getGiornoBySettimana(settimana,data){
   var res = false;
+  var giorno = toString(data);
   for (var i=0; i < date.length; i++){
     if (date[i][settimana]){
       for (var j = 0; j < date[i][settimana].length; j++) {

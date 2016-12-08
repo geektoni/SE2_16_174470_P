@@ -66,6 +66,28 @@ describe("Categorie Data Access Test", function(){
       expect(res).toEqual(false);
     });
 
+      it("should add another categoria if new one", function () {
+          categorieDA.cleanCategorie();
+          var primo = new Categoria("Primo");
+          var secondo = new Categoria("Secondo");
+          categorieDA.addCategoria(primo);
+          categorieDA.addCategoria(secondo);
+          var primo_retrieved = categorieDA.getCategoriaByNome(primo);
+          var secondo_retrieved = categorieDA.getCategoriaByNome(secondo);
+          expect(primo_retrieved).toEqual(primo);
+          expect(secondo_retrieved).toEqual(secondo);
+
+      });
+
+      it("should should not add another categoria if exists", function () {
+          categorieDA.cleanCategorie();
+          var quinto = new Categoria("Quinto");
+          var quinto_wrong = quinto;
+          categorieDA.addCategoria(quinto);
+          var res = categorieDA.addCategoria(quinto_wrong);
+          expect(res).toEqual(false);
+      });
+
   });
 
 });

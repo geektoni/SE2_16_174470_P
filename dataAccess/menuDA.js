@@ -3,12 +3,15 @@ var dateDA = require('../dataAccess/dateDA.js');
 
 /*Struttura menu:
 
-{ "numero_settimana":
-[ {"giorno" : ["pasto", "pasto", ... ] },
-{"giorno": ["pasto", "pasto", ... ] },
-...
-]
-}
+  { "numero_settimana":
+    [ {"giorno" :
+        ["pasto", "pasto", ... ] },
+      {"giorno":
+        ["pasto", "pasto", ... ] },
+       ...
+    ]
+ }
+
 */
 
 var menu = [];
@@ -75,24 +78,40 @@ function addScelta (pasto,data) {
   return res;
 }
 
-function getAllGiorni (settimana) {
+function getAllGiorni (data) {
   var res = [];
+  var settimana = data.settimana.toString();
+
   for (var i = 0; i < menu.length; i++) {
-    if(menu[i][settimana]){
-        res = menu[i][settimana];
+    var week = menu[i][settimana];
+    if(week){
+      for (var j = 0; j < week.length; j++ ){
+        var day = week[j];
+        if (day){
+          res.push(Object.keys(day).pop());
+        }
+      }
     }
   }
   return res;
 }
 
-function getPastiByGiorno (settimana,giorno) {
+function getPastiByGiorno (data) {
   var res = [];
+  var settimana = data.settimana.toString();
+  var giorno = dateDA.toString(data);
   //var data = dateDA.getGiornoBySettimana(settimana,giorno);
   for (var i = 0; i < menu.length; i++) {
-    if(menu[i][settimana.toString()]){
-      for (var j = 0; j < menu[i][settimana.toString()].length; j++) {
-        if (menu[i][settimana.toString()][j][giorno]){
-          res.push(menu[i][settimana.toString()][j][giorno]);
+    var week = menu[i][settimana];
+    if(week){
+      for (var j = 0; j < week.length; j++) {
+        var day = week[j][giorno];
+        if (day){
+          for (var k = 0; k < day.length; k++){
+            if (day[k]){
+              res.push(day[k]);
+            }
+          }
         }
       }
     }

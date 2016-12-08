@@ -23,17 +23,20 @@ describe('Pasti DA methods', function() {
     var pasto_test_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test);
 
     it("should add a valid pasto", function () {
+      pastiDA.cleanPasti();
       var res = pastiDA.addPasto(pasto_test);
       expect(res).toEqual(true);
     });
 
     it('should add another valid pasto', function() {
+      pastiDA.cleanPasti();
       pastiDA.addPasto(pasto_test);
       var res = pastiDA.addPasto(pasto_test_2);
       expect(res).toEqual(true);
     });
 
     it('should not allow to add pasto already inside', function() {
+      pastiDA.cleanPasti();
       pastiDA.addPasto(pasto_test);
       var res = pastiDA.addPasto(pasto_test);
       expect(res).toEqual(false);
