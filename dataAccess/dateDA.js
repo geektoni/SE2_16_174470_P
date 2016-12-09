@@ -2,13 +2,6 @@ var Data = require('../models/data.js');
 
 var date = [];
 
-// var data_test = {"1" :  [ new Data(1, 01, 01, 2017),
-//                           new Data(1, 02, 01, 2017)
-//                         ]
-// };
-//
-// date.push(data_test);
-
 function validateSettimana (data) {
   var res = false;
   var error;
@@ -107,7 +100,7 @@ function addData(data) {
       if (date.length <= 0 || !getSettimana(data) ) {
           date.push(new_data);
           res = true;
-      } else if(!getGiornoBySettimana(settimana,data)) {
+      } else if(!getGiornoBySettimana(data)) {
           for (var i = 0; i < date.length; i++) {
               date[i][settimana].push(data);
           }
@@ -122,7 +115,7 @@ function getSettimana(data) {
   for (var i = 0; i < date.length; i++) {
     var found = Object.keys(date[i])[0];
     if( found === data.settimana.toString()){
-      res = Object.keys(date[i])[0];
+      res = true;
     }
   }
   return res;
@@ -138,8 +131,9 @@ function getDateBySettimana(settimana) {
   return res;
 }
 
-function getGiornoBySettimana(settimana,data){
+function getGiornoBySettimana(data){
   var res = false;
+  var settimana = data.settimana;
   var giorno = toString(data);
   for (var i=0; i < date.length; i++){
     if (date[i][settimana]){
@@ -153,9 +147,18 @@ function getGiornoBySettimana(settimana,data){
   return res;
 }
 
+function parseData (data) {
+    var res = "";
+    if (data.length > 6){
+      res = data.split("-",3);
+    }
+    return res;
+}
+
 function toString(data) {
-  var data =  data.giorno.toString()+
-              data.mese.toString() +
+  var separator = "-";
+  var data =  data.giorno.toString()+separator+
+              data.mese.toString() +separator+
               data.anno.toString();
   return data;
 }
@@ -167,7 +170,13 @@ function cleanDate () {
 
 exports.isValid = isValid;
 exports.addData = addData;
+exports.getSettimana = getSettimana;
 exports.getDateBySettimana = getDateBySettimana;
 exports.getGiornoBySettimana = getGiornoBySettimana;
+exports.parseData = parseData;
 exports.toString = toString;
 exports.cleanDate = cleanDate;
+
+// DEFAULT VALUES
+addData(new Data(1, 01, 01, 2017));
+addData(new Data(1, 02, 01, 2017));

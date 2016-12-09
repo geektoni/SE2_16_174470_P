@@ -1,5 +1,9 @@
 var menuDA = require('../dataAccess/menuDA.js');
+var dateDA = require('../dataAccess/dateDA.js');
+var pastiDA = require('../dataAccess/pastiDA.js');
 
+var Pasto = require('../models/pasto.js');
+var Data = require('../models/data.js');
 /*
 */
 // function indexGiorniByUserId (id) {
@@ -10,23 +14,56 @@ var menuDA = require('../dataAccess/menuDA.js');
 // }
 
 function indexGiorni (req,res) {
-  var settimana = req.params.numero;
-  var giorni = menuDA.getAllGiorni(settimana);
+
+  var numero = new Data();
+  numero.settimana = req.params.numero;
+
+  var giorni = menuDA.getAllGiorni(numero);
+  if (giorni > 0){
+      var result = {days: giorni};
+      console.log(giorni) ;
+      res.render('menu/index',result);
+  } else {
+      //res.sendStatus(404);
+      var error = "Settimana not found";
+      res.render('error', {
+        error: error
+      })
+  }
+
   //console.log(JSON.stringify(giorni));
-  console.log(giorni);
-  res.send("");
+
 }
 
 /*
 */
 function indexPastiByGiorno (req,res) {
-  //oggetto sessione per quel giorno
-  var settimana = req.params.numero;
-  var giorno = req.params.data;
+    var settimana = req.params.numero;
+    var giorno = dateDA.parseData(req.params.data);
+    var data = new Data(settimana,giorno[0],giorno[1],giorno[2]);
+    if (dateDA.isValid(data)){
+        var menu_del_giorno = menuDA.getPastiByGiorno(data);
+        console.log("MENU") ;
+        console.log(menu_del_giorno) ;
+        if (menu_del_giorno.length > 0){
+            var result = {days: menu_del_giorno};
 
-  var menu_del_giorno = menuDA.getPastiByGiorno(settimana,giorno);
-  console.log(menu_del_giorno);
-  res.send("");
+            res.render('menu/index',result);
+        } else {
+            //res.sendStatus(404);
+            var error = "Giorno not found";
+            res.render('error', {
+                error: error
+            });
+        }
+    } else {
+        var error = "Data not valid";
+        res.render('error', {
+            error: error
+        });
+    }
+
+
 }
 
 exports.indexGiorni = indexGiorni;

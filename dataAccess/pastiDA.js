@@ -1,15 +1,8 @@
 var Pasto = require('../models/pasto.js');
 
-var categoriaDA = require('./categorieDA.js');
+var categorieDA = require('../dataAccess/categorieDA.js');
 
 var pasti = [];
-
-// var categoria_test = categoriaDA.getCategoriaByName('Primo');
-// var pasto_test = new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test);
-// var pasto_test_2 = new Pasto(2, 'Pasta in rosso', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test);
-//
-// pasti.push(pasto_test);
-// pasti.push(pasto_test_2);
 
 function validateId (pasto) {
   var res = false;
@@ -157,6 +150,7 @@ function addPasto(pasto) {
 }
 
 function getPastoById (pasto) {
+
   var res = false;
   for (var i = 0; i < pasti.length; i++) {
     if (pasti[i].id === pasto.id){
@@ -174,3 +168,11 @@ exports.isValid = isValid;
 exports.addPasto = addPasto;
 exports.getPastoById = getPastoById;
 exports.cleanPasti = cleanPasti;
+
+//DEFAULT VALUES
+var categoria_default = categorieDA.getCategoriaByNome('Primo');
+var pasto_default_1 = new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_default);
+var pasto_default_2 = new Pasto(2, 'Pasta in rosso', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_default);
+
+addPasto(pasto_default_1);
+addPasto(pasto_default_2);
