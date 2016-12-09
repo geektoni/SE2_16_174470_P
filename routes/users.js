@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var express = require('express');
-var router = express.Router();
+var usersController = require ('../controllers/usersController');
 
 /* GET request route */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  usersController.index(req,res);
 });
 
 /* POST request route */

@@ -61,3 +61,7 @@ exports.isValid = isValid;
 exports.addCategoria = addCategoria;
 exports.getCategoriaByNome = getCategoriaByNome;
 exports.cleanCategorie = cleanCategorie;
+
+//DEFAULT VALUES
+var categoria_default = new Categoria("Primo");
+addCategoria(categoria_default);

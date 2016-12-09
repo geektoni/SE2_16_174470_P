@@ -16,23 +16,9 @@ var dateDA = require('../dataAccess/dateDA.js');
 
 var menu = [];
 
-
-// // TEST ----------------------------------------
-// // Prende il primo pasto aggiunto
-// var new_pasto = pastiDA.getPastoById(1);
-// // Prende il secondo pasto aggiunto
-// var new_pasto_2 = pastiDA.getPastoById(2);
-//
-// // Prende il primo giorno della settimana specificata
-// var new_data = dateDA.getDateBySettimana("1")[0];
-// addScelta(new_pasto,new_data);
-// addScelta(new_pasto_2,new_data);
-
-
 // ---------------------------------------------
 
 function addScelta (pasto,data) {
-
   var res = false;
   var new_settimana = data.settimana.toString();
   // controllo se new_settimana is valid
@@ -79,6 +65,7 @@ function addScelta (pasto,data) {
 }
 
 function getAllGiorni (data) {
+
   var res = [];
   var settimana = data.settimana.toString();
 
@@ -100,7 +87,6 @@ function getPastiByGiorno (data) {
   var res = [];
   var settimana = data.settimana.toString();
   var giorno = dateDA.toString(data);
-  //var data = dateDA.getGiornoBySettimana(settimana,giorno);
   for (var i = 0; i < menu.length; i++) {
     var week = menu[i][settimana];
     if(week){
@@ -129,3 +115,28 @@ exports.addScelta = addScelta;
 exports.getAllGiorni = getAllGiorni;
 exports.getPastiByGiorno = getPastiByGiorno;
 exports.cleanMenu = cleanMenu;
+
+// DEFAULT VALUES
+var Pasto = require('../models/pasto.js');
+var Categoria = require('../models/categoria.js');
+var Data = require('../models/data.js');
+
+addScelta(
+    new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL',
+        new Categoria("Primo")
+    ),
+    new Data(1, 01, 01, 2017)
+);
+addScelta(
+    new Pasto(2, 'Pasta in rosso', 'Piatto semplice', 'fotoURL', 'videoURL',
+        new Categoria("Primo")
+    ),
+    new Data(1, 01, 01, 2017)
+);
+
+addScelta(
+    new Pasto(2, 'Minestra', 'Piatto semplice', 'fotoURL', 'videoURL',
+        new Categoria("Primo")
+    ),
+    new Data(1, 02, 01, 2017)
+);

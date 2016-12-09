@@ -25,19 +25,21 @@ function cleanDB () {
 describe("Menu DA Test", function () {
 
     describe('Add valid scelta test', function() {
-        var categoria_test = new Categoria ("Terzo");
-        categorieDA.addCategoria(categoria_test);
-        categoria_test = categorieDA.getCategoriaByNome(categoria_test.nome);
-
-        var pasto_test = new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL',categoria_test);
-        var res=pastiDA.addPasto(pasto_test);
-        pasto_test = pastiDA.getPastoById(pasto_test);
-        var data_test = new Data(1, 01, 01, 2017);
 
         it("should add a new scelta", function () {
             cleanDB ();
+            var categoria_test = new Categoria ("Terzo");
+            categorieDA.addCategoria(categoria_test);
+            categoria_test = categorieDA.getCategoriaByNome(categoria_test.nome);
+
+            var pasto_test = new Pasto(1, 'Pasta al ragu', 'Piatto semplice', 'fotoURL', 'videoURL',categoria_test);
+            pastiDA.addPasto(pasto_test);
+            pasto_test = pastiDA.getPastoById(pasto_test);
+            var data_test = new Data(1, 01, 01, 2017);
+
             dateDA.addData(data_test);
-            giorno_test = dateDA.getGiornoBySettimana(data_test.settimana.toString(),data_test);
+            giorno_test = dateDA.getGiornoBySettimana(data_test);
+
             var res = menuDA.addScelta(pasto_test,giorno_test);
             expect(res).toEqual(true);
         });
