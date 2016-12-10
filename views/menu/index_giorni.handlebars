@@ -1,7 +1,9 @@
 <div class="container">
-    <div class="row">
-    {{#each days}}
-        <div class="col-xs-3 col-sm-3 col-md-3">{{this}}</div>
-    {{/each}}
-    </div>
+    <ul class="list-group">
+        {{#each days}}
+            <li class="list-group-item">
+                <a href="#" class="giorno">{{this}}</a>
+            </li>
+        {{/each}}
+    </ul>
 </div>

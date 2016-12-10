@@ -67,12 +67,13 @@ function addScelta (pasto,data) {
 
 function getAllGiorni (data) {
 
-    var res = [];
+    var res = false;
     var settimana = data.settimana.toString();
 
     for (var i = 0; i < menu.length; i++) {
         var week = menu[i][settimana];
         if(week){
+            res = [];
             for (var j = 0; j < week.length; j++ ){
                 var day = week[j];
                 if (day){

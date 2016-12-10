@@ -74,12 +74,12 @@ describe("Menu DA Test", function () {
             expect(res).toEqual(expected_res);
         });
 
-        it("should return empty list if settimana not found", function () {
+        it("should return false list if settimana not found", function () {
             cleanDB ();
             dateDA.addData(giorno_test_1);
             var wrong_settimana = new Data(3);
             var res = menuDA.getAllGiorni(wrong_settimana);
-            expect(res).toEqual([]);
+            expect(res).toEqual(false);
         });
     });
 

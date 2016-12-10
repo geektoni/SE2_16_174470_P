@@ -1,0 +1,16 @@
+<div class="container">
+    {{#each pasti}}
+        {{#each Primo}}
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{fotoURL}}" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">{{nome}}</h4>
+                        <a class="card-info">Informazioni</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{/each}}
+</div>
+
