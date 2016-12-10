@@ -1,114 +1,146 @@
 var pastiDA = require('../dataAccess/pastiDA.js');
 var dateDA = require('../dataAccess/dateDA.js');
+var categorieDa = require('../dataAccess/categorieDA.js');
 
 /*Struttura menu:
 
-  { "numero_settimana":
-    [ {"giorno" :
-        ["pasto", "pasto", ... ] },
-      {"giorno":
-        ["pasto", "pasto", ... ] },
-       ...
-    ]
+ { "numero_settimana":
+ [ {"giorno" :
+ ["pasto", "pasto", ... ] },
+ {"giorno":
+ ["pasto", "pasto", ... ] },
+ ...
+ ]
  }
 
-*/
+ */
 
 var menu = [];
 
 // ---------------------------------------------
 
 function addScelta (pasto,data) {
-  var res = false;
-  var new_settimana = data.settimana.toString();
-  // controllo se new_settimana is valid
-  var new_giorno = dateDA.toString(data);
-  // controllo se new_giorno is valid
+    var res = false;
+    var new_settimana = data.settimana.toString();
+    // controllo se new_settimana is valid
+    var new_giorno = dateDA.toString(data);
+    // controllo se new_giorno is valid
 
-  if (pastiDA.isValid(pasto) && dateDA.isValid(data)){
-    var new_scelta_g = {};
-    new_scelta_g[new_giorno] = []
-    new_scelta_g[new_giorno].push(pasto);
+    if (pastiDA.isValid(pasto) && dateDA.isValid(data)){
+        var new_scelta_g = {};
+        new_scelta_g[new_giorno] = []
+        new_scelta_g[new_giorno].push(pasto);
 
-    var new_scelta_s = {};
-    new_scelta_s[new_settimana] = [];
-    new_scelta_s[new_settimana].push(new_scelta_g);
+        var new_scelta_s = {};
+        new_scelta_s[new_settimana] = [];
+        new_scelta_s[new_settimana].push(new_scelta_g);
 
-    if (menu.length > 0) {
-      for (var i = 0; i < menu.length; i++) {
-        if(menu[i][new_settimana]) {
-          for (var j = 0; j < menu[i][new_settimana].length; j++) {
-            if(menu[i][new_settimana][j][new_giorno]){
+        if (menu.length > 0) {
+            for (var i = 0; i < menu.length; i++) {
+                if(menu[i][new_settimana]) {
+                    for (var j = 0; j < menu[i][new_settimana].length; j++) {
+                        if(menu[i][new_settimana][j][new_giorno]){
 
-              menu[i][new_settimana][j][new_giorno].push(pasto);
-              res = true;
-            } else {
-              menu[i][new_settimana].push(new_scelta_g);
-              res = true;
+                            menu[i][new_settimana][j][new_giorno].push(pasto);
+                            res = true;
+                        } else {
+                            menu[i][new_settimana].push(new_scelta_g);
+                            res = true;
+                        }
+                    }
+                } else {
+                    menu.push(new_scelta_s)
+                    //Se la transazione e' andata a buon fine
+                    res = true;
+                }
             }
-          }
         } else {
-          menu.push(new_scelta_s)
-          //Se la transazione e' andata a buon fine
-          res = true;
+            menu.push(new_scelta_s)
+            //Se la transazione e' andata a buon fine
+            res = true;
         }
-      }
-    } else {
-      menu.push(new_scelta_s)
-      //Se la transazione e' andata a buon fine
-      res = true;
     }
-  }
 
 
-  return res;
+    return res;
 }
 
 function getAllGiorni (data) {
 
-  var res = [];
-  var settimana = data.settimana.toString();
+    var res = [];
+    var settimana = data.settimana.toString();
 
-  for (var i = 0; i < menu.length; i++) {
-    var week = menu[i][settimana];
-    if(week){
-      for (var j = 0; j < week.length; j++ ){
-        var day = week[j];
-        if (day){
-          res.push(Object.keys(day).pop());
+    for (var i = 0; i < menu.length; i++) {
+        var week = menu[i][settimana];
+        if(week){
+            for (var j = 0; j < week.length; j++ ){
+                var day = week[j];
+                if (day){
+                    res.push(Object.keys(day).pop());
+                }
+            }
         }
-      }
     }
-  }
-  return res;
+    return res;
 }
 
 function getPastiByGiorno (data) {
-  var res = [];
-  var settimana = data.settimana.toString();
-  var giorno = dateDA.toString(data);
-  for (var i = 0; i < menu.length; i++) {
-    var week = menu[i][settimana];
-    if(week){
-      for (var j = 0; j < week.length; j++) {
-        var day = week[j][giorno];
-        if (day){
-          for (var k = 0; k < day.length; k++){
-            if (day[k]){
-              res.push(day[k]);
-            }
-          }
-        }
-      }
-    }
-  }
+    var res = false;
+    var settimana = data.settimana.toString();
+    var giorno = dateDA.toString(data);
 
-  return res;
+    /*
+     Costruisco il JSON di risposta
+
+     {
+     "giorno" : giorno,
+     "pasti" : [   { "Categoria" : [pasto, pasto, pasto] } ,
+     { "Categoria" : [pasto, pasto, pasto] } ,
+     ... ]
+     }
+
+     */
+
+    for (var i = 0; i < menu.length; i++) {
+        var week = menu[i][settimana];
+        if(week){
+            for (var j = 0; j < week.length; j++) {
+                var day = week[j][giorno];
+                if (day){
+                    // Costruisco il JSON di risposta
+                    res = {};
+                    res["giorno"] = giorno;
+                    res["pasti"] = [];
+                    var all_categorie = categorieDa.getAllCategorie();
+
+                    // Riempio il JSON con le categorie su cui dividere i pasti del giorno
+                    for (var cat = 0; cat < all_categorie.length; cat++) {
+                        var categoria = {};
+                        categoria[all_categorie[cat].nome] = [];
+                        res["pasti"].push(categoria);
+
+                        // assegno i piatti alla categorie di appartenenza
+                        for (var k = 0; k < day.length; k++){
+                            if (day[k]){
+                                nome_categoria = Object.keys(res["pasti"][cat])[0];
+                                if (nome_categoria === day[k].categoria.nome ){
+                                    res["pasti"][cat][day[k].categoria.nome].push(day[k]);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    return res;
 }
 
 function cleanMenu () {
-  var new_menu = [];
-  menu = new_menu;
+    var new_menu = [];
+    menu = new_menu;
 }
 
 exports.addScelta = addScelta;

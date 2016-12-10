@@ -41,6 +41,9 @@ function addCategoria(categoria) {
   return res;
 }
 
+function getAllCateogorie () {
+  return categorie;
+}
 
 function getCategoriaByNome(categoria){
   var res = false;
@@ -59,6 +62,7 @@ function cleanCategorie () {
 
 exports.isValid = isValid;
 exports.addCategoria = addCategoria;
+exports.getAllCategorie = getAllCateogorie;
 exports.getCategoriaByNome = getCategoriaByNome;
 exports.cleanCategorie = cleanCategorie;
 
