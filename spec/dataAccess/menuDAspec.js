@@ -52,19 +52,19 @@ describe("Menu DA Test", function () {
         var pasto_test_1 = new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test);
         var pasto_test_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test);
 
-        var settimana_test = new Data (1);
+        var settimana_test = new Data(1);
 
         it("should return all giorni when given a settimana", function () {
-            cleanDB ();
+            cleanDB();
             dateDA.addData(giorno_test_1);
             dateDA.addData(giorno_test_2);
             //Lunedi
-            menuDA.addScelta(pasto_test_1,giorno_test_1);
-            menuDA.addScelta(pasto_test_2,giorno_test_1);
+            menuDA.addScelta(pasto_test_1, giorno_test_1);
+            menuDA.addScelta(pasto_test_2, giorno_test_1);
             //Martedi
-            menuDA.addScelta(pasto_test_2,giorno_test_2);
+            menuDA.addScelta(pasto_test_2, giorno_test_2);
 
-            var expected_res = [dateDA.toString(giorno_test_1),dateDA.toString(giorno_test_2)];
+            var expected_res = [dateDA.toString(giorno_test_1), dateDA.toString(giorno_test_2)];
 
             var res = menuDA.getAllGiorni(settimana_test);
 
@@ -72,14 +72,6 @@ describe("Menu DA Test", function () {
             expect(res).not.toEqual([]);
             expect(res.length).toEqual(2);
             expect(res).toEqual(expected_res);
-
-        });
-
-        it("should return empty list if one/both param/s is/are not found", function () {
-            cleanDB();
-            var wrong_settimana = new Data(3);
-            var res = menuDA.getAllGiorni(wrong_settimana);
-            expect(res).toEqual([]);
         });
 
         it("should return empty list if settimana not found", function () {
@@ -89,15 +81,33 @@ describe("Menu DA Test", function () {
             var res = menuDA.getAllGiorni(wrong_settimana);
             expect(res).toEqual([]);
         });
+    });
+
+    describe("getPastiByGiorno test", function () {
+        var giorno_test_1 = new Data(1, 01, 01, 2017);
+        var categoria_test_1 = new Categoria("Primo");
+        var categoria_test_2 = new Categoria("Secondo");
+        var pasto_test_1 = new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test_1);
+        var pasto_test_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_test_2);
+
+        var settimana_test = new Data(1);
 
         it("should return all pasti of a given giorno", function () {
             cleanDB ();
+            categorieDA.addCategoria(categoria_test_1);
+            categorieDA.addCategoria(categoria_test_2);
             dateDA.addData(giorno_test_1);
             menuDA.addScelta(pasto_test_1,giorno_test_1);
             menuDA.addScelta(pasto_test_2,giorno_test_1);
+
             var res = menuDA.getPastiByGiorno(giorno_test_1);
-            var expected_res = {};
-            expected_res = [pasto_test_1,pasto_test_2];
+
+            var expected_res = {
+                "giorno" : dateDA.toString(giorno_test_1),
+                "pasti" : [ { "Primo" : [pasto_test_1] },
+                            { "Secondo" : [pasto_test_2] }
+                ]
+            };
 
             expect(res).not.toBe(undefined);
             expect(res).toEqual(expected_res);
@@ -109,9 +119,8 @@ describe("Menu DA Test", function () {
             var res = menuDA.getPastiByGiorno(data_not_exist);
 
             expect(res).not.toBe(undefined);
-            expect(res).toEqual([]);
+            expect(res).toEqual(false);
         });
-
     });
 });
 
