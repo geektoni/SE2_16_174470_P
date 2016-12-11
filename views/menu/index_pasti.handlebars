@@ -6,17 +6,50 @@
         <div class="row">
             <h2 class="header">{{nome}}</h2>
         </div>
-        {{#each pasti}}
-            <div class="col-xs-12 col-sm-12 col-md-3">
-                <div class="card">
-                    <img class="card-img-top photo" src="/images/{{fotoURL}}" alt="Card image">
-                    <div class="card-block">
-                        <h4 class="card-title">{{nome}}</h4>
-                        <a class="card-info">Informazioni</a>
+        <div class="row">
+            {{#each pasti}}
+                <div class="col-xs-10 col-sm-3 col-md-3">
+                    <div class="card " id="{{id}}" data-toggle="modal" data-target="#informazioni">
+                        <img class="card-img-top photo" src="/images/{{fotoURL}}" alt="Card image">
+                        <div class="card-block">
+                            <h4 class="card-title">{{nome}}</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {{/each}}
+            {{/each}}
+        </div>
     {{/each}}
+    <!-- Modale per ottenere maggiori informazioni-->
+    <div id ="informazioni" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ottenere maggiori informazioni?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#conferma">SI</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- Modale per confermare la scelta -->
+
+    <div id ="conferma" class="modal fade" tabindex="-1" role="dialog" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Confermare la scelta?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">SI</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </div>
+
+
+<script src="/javascripts/ordini/ordine.js" type="text/javascript"></script>
 

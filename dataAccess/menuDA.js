@@ -158,23 +158,34 @@ var Pasto = require('../models/pasto.js');
 var Categoria = require('../models/categoria.js');
 var Data = require('../models/data.js');
 
-addScelta(
-    new Pasto(1, 'Tagliatelle', 'Piatto semplice', 'tagliatelle_fresche.jpg', 'videoURL',
-        new Categoria("Primo")
-    ),
-    new Data(1, 01, 01, 2017)
-);
-addScelta(
-    new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'spaghetti_pomodoro.jpg', 'videoURL',
-        new Categoria("Primo")
-    ),
-    new Data(1, 01, 01, 2017)
-);
+var giorno_default_1 = new Data(1, 01, 01, 2017);
+var giorno_default_2 = new Data(1, 02, 01, 2017);
 
-addScelta(
-    new Pasto(3, 'Passato di verdura', 'Piatto semplice', 'passato_verdura.jpg', 'videoURL',
-        new Categoria("Primo")
-    ),
-    new Data(1, 02, 01, 2017)
-);
+var categoria_default_1 = new Categoria("Primo");
+var categoria_default_2 = new Categoria("Secondo");
+var categoria_default_3 = new Categoria("Dessert");
+
+var pasto_default_1 = new Pasto(1, 'Tagliatelle', 'Piatto semplice', 'tagliatelle_fresche.jpg', 'videoURL', categoria_default_1);
+var pasto_default_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'spaghetti_pomodoro.jpg', 'videoURL', categoria_default_1);
+var pasto_default_3 = new Pasto(3, 'Passato di verdura', 'Piatto semplice', 'passato_verdura.jpg', 'videoURL', categoria_default_1);
+var pasto_default_4 = new Pasto(4, 'Pasto 4', 'Piatto semplice', 'gnocchi_pomodoro.jpg', 'videoURL', categoria_default_1);
+var pasto_default_5 = new Pasto(5, 'Pasto 5', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
+var pasto_default_6 = new Pasto(6, 'Pasto 6', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
+var pasto_default_7 = new Pasto(7, 'Pasto 7', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
+var pasto_default_8 = new Pasto(8, 'Pasto 8', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
+
+addScelta(pasto_default_1,giorno_default_1);
+addScelta(pasto_default_2,giorno_default_1);
+addScelta(pasto_default_3,giorno_default_1);
+addScelta(pasto_default_4,giorno_default_1);
+addScelta(pasto_default_5,giorno_default_1);
+addScelta(pasto_default_6,giorno_default_1);
+addScelta(pasto_default_7,giorno_default_1);
+addScelta(pasto_default_8,giorno_default_1);
+
+addScelta(pasto_default_1,giorno_default_2);
+addScelta(pasto_default_4,giorno_default_2);
+addScelta(pasto_default_8,giorno_default_2);
+
+
 

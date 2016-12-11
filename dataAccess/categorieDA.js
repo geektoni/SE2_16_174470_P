@@ -67,5 +67,10 @@ exports.getCategoriaByNome = getCategoriaByNome;
 exports.cleanCategorie = cleanCategorie;
 
 //DEFAULT VALUES
-var categoria_default = new Categoria("Primo");
-addCategoria(categoria_default);
+var categoria_default_1 = new Categoria("Primo");
+var categoria_default_2 = new Categoria("Secondo");
+var categoria_default_3 = new Categoria("Dessert");
+
+addCategoria(categoria_default_1);
+addCategoria(categoria_default_2);
+addCategoria(categoria_default_3);

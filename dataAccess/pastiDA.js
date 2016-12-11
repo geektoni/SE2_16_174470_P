@@ -171,13 +171,30 @@ exports.getPastoById = getPastoById;
 exports.cleanPasti = cleanPasti;
 
 //DEFAULT VALUES
-var categoria_default = categorieDA.getCategoriaByNome('Primo');
-var pasto_default_1 = new Pasto(1, 'Tagliatelle', 'Piatto semplice', 'tagliatelle_fresche.jpg', 'videoURL', categoria_default);
-var pasto_default_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'spaghetti_pomodoro.jpg', 'videoURL', categoria_default);
-var pasto_default_3 = new Pasto(3, 'Passato di verdura', 'Piatto semplice', 'passato_verdura.jpg', 'videoURL', categoria_default);
+var Categoria = require('../models/categoria.js');
+
+var categoria_default_1 = new Categoria("Primo");
+var categoria_default_2 = new Categoria("Secondo");
+var categoria_default_3 = new Categoria("Dessert");
+
+var pasto_default_1 = new Pasto(1, 'Tagliatelle', 'Piatto semplice', 'tagliatelle_fresche.jpg', 'videoURL', categoria_default_1);
+var pasto_default_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'spaghetti_pomodoro.jpg', 'videoURL', categoria_default_1);
+var pasto_default_3 = new Pasto(3, 'Passato di verdura', 'Piatto semplice', 'passato_verdura.jpg', 'videoURL', categoria_default_1);
+var pasto_default_4 = new Pasto(4, 'Pasto 4', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_2);
+var pasto_default_5 = new Pasto(5, 'Pasto 5', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_2);
+var pasto_default_6 = new Pasto(6, 'Pasto 6', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_2);
+var pasto_default_7 = new Pasto(7, 'Pasto 7', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_3);
+var pasto_default_8 = new Pasto(8, 'Pasto 8', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_3);
+
 
 addPasto(pasto_default_1);
 addPasto(pasto_default_2);
 addPasto(pasto_default_3);
+addPasto(pasto_default_4);
+addPasto(pasto_default_5);
+addPasto(pasto_default_6);
+addPasto(pasto_default_7);
+addPasto(pasto_default_8);
+
 
 
