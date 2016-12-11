@@ -17,12 +17,9 @@ var ordini = require('./routes/ordini');
 var app = express();
 
 // view engine setup
-//app.set('views', path.join(__dirname, 'views'));
+app.set('public', path.join(__dirname, 'views'));
 app.engine('handlebars',
     exphbs({defaultLayout: 'main'}));
-//Template con bootstrap
-//app.engine('handlebars',
-//    exphbs({defaultLayout: 'bootstrap_main'}));
 
 app.set('view engine', 'handlebars');
 var options = { dotfiles: 'ignore', etag: false,

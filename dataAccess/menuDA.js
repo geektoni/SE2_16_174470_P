@@ -34,20 +34,27 @@ function addScelta (pasto,data) {
         var new_scelta_s = {};
         new_scelta_s[new_settimana] = [];
         new_scelta_s[new_settimana].push(new_scelta_g);
-
+        console.log(JSON.stringify(new_scelta_s));
         if (menu.length > 0) {
             for (var i = 0; i < menu.length; i++) {
                 if(menu[i][new_settimana]) {
-                    for (var j = 0; j < menu[i][new_settimana].length; j++) {
-                        if(menu[i][new_settimana][j][new_giorno]){
+                    var found = false;
+                    for (var j = 0; j < menu[i][new_settimana].length && !found; j++) {
+                        console.log("A");
+                        if (menu[i][new_settimana][j][new_giorno]) {
+                            //console.log(menu[i][new_settimana][j][new_giorno]);
 
                             menu[i][new_settimana][j][new_giorno].push(pasto);
-                            res = true;
-                        } else {
-                            menu[i][new_settimana].push(new_scelta_g);
-                            res = true;
+                            found = true;
                         }
                     }
+                    if (!found) {
+                        //console.log(menu[i][new_settimana][j][new_giorno]);
+                        menu[i][new_settimana].push(new_scelta_g);
+
+                    }
+                    res = true;
+
                 } else {
                     menu.push(new_scelta_s)
                     //Se la transazione e' andata a buon fine
@@ -61,6 +68,7 @@ function addScelta (pasto,data) {
         }
     }
 
+    console.log("");
 
     return res;
 }
@@ -156,21 +164,23 @@ var Categoria = require('../models/categoria.js');
 var Data = require('../models/data.js');
 
 addScelta(
-    new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL',
+    new Pasto(1, 'Tagliatelle', 'Piatto semplice', 'tagliatelle_fresche.jpg', 'videoURL',
         new Categoria("Primo")
     ),
     new Data(1, 01, 01, 2017)
 );
 addScelta(
-    new Pasto(2, 'Pasta in rosso', 'Piatto semplice', 'fotoURL', 'videoURL',
+    new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'spaghetti_pomodoro.jpg', 'videoURL',
         new Categoria("Primo")
     ),
     new Data(1, 01, 01, 2017)
 );
 
 addScelta(
-    new Pasto(2, 'Minestra', 'Piatto semplice', 'fotoURL', 'videoURL',
+    new Pasto(3, 'Passato di verdura', 'Piatto semplice', 'passato_verdura.jpg', 'videoURL',
         new Categoria("Primo")
     ),
     new Data(1, 02, 01, 2017)
 );
+
+console.log(JSON.stringify(menu));
