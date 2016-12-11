@@ -28,13 +28,16 @@ describe("Categorie Data Access Test", function(){
 
   describe('Add Categoria Test', function() {
     it("should add a valid categoria", function () {
-      var secondo = new Categoria("Secondo");
+        categorieDA.cleanCategorie();
+
+        var secondo = new Categoria("Secondo");
       var res = categorieDA.addCategoria(secondo);
       expect(res).toEqual(true);
     });
 
     it("should return false if categoria is not valid", function () {
-      var secondo = new Categoria("");
+        categorieDA.cleanCategorie();
+        var secondo = new Categoria("");
       var terzo = new Categoria();
       var res_1 = categorieDA.addCategoria(secondo);
       var res_2 = categorieDA.addCategoria(terzo);
@@ -53,7 +56,8 @@ describe("Categorie Data Access Test", function(){
     var quarto = new Categoria("Quarto");
 
     it('should get an existent Categoria by its nome', function() {
-      categorieDA.addCategoria(quarto);
+        categorieDA.cleanCategorie();
+        categorieDA.addCategoria(quarto);
       var res = categorieDA.getCategoriaByNome(quarto);
 
       expect(res).not.toBe(undefined);
@@ -61,7 +65,8 @@ describe("Categorie Data Access Test", function(){
     });
 
     it('should return false if not found', function() {
-      categorieDA.addCategoria(quarto);
+        categorieDA.cleanCategorie();
+        categorieDA.addCategoria(quarto);
       var res = categorieDA.getCategoriaByNome("");
       expect(res).toEqual(false);
     });
