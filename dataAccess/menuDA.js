@@ -111,21 +111,22 @@ function getPastiByGiorno (data) {
                     // Costruisco il JSON di risposta
                     res = {};
                     res["giorno"] = giorno;
-                    res["pasti"] = [];
+                    res["menu"] = [];
                     var all_categorie = categorieDa.getAllCategorie();
 
                     // Riempio il JSON con le categorie su cui dividere i pasti del giorno
                     for (var cat = 0; cat < all_categorie.length; cat++) {
                         var categoria = {};
-                        categoria[all_categorie[cat].nome] = [];
-                        res["pasti"].push(categoria);
+                        categoria["nome"] =  all_categorie[cat].nome;
+                        categoria["pasti"] = [];
+                        res["menu"].push(categoria);
 
                         // assegno i piatti alla categorie di appartenenza
                         for (var k = 0; k < day.length; k++){
                             if (day[k]){
-                                nome_categoria = Object.keys(res["pasti"][cat])[0];
+                                nome_categoria = res["menu"][cat].nome;
                                 if (nome_categoria === day[k].categoria.nome ){
-                                    res["pasti"][cat][day[k].categoria.nome].push(day[k]);
+                                    res["menu"][cat]["pasti"].push(day[k]);
                                 }
                             }
                         }

@@ -1,9 +1,15 @@
 <div class="container">
-    {{#each pasti}}
-        {{#each Primo}}
-            <div class="col-xs-3 col-sm-3 col-md-3">
+    <div class="row">
+        <h1>{{giorno}}</h1>
+    </div>
+    {{#each menu}}
+        <div class="row">
+            <h2 class="header">{{nome}}</h2>
+        </div>
+        {{#each pasti}}
+            <div class="col-xs-12 col-sm-12 col-md-3">
                 <div class="card">
-                    <img class="card-img-top" src="{{fotoURL}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{fotoURL}}" alt="Card image">
                     <div class="card-block">
                         <h4 class="card-title">{{nome}}</h4>
                         <a class="card-info">Informazioni</a>
