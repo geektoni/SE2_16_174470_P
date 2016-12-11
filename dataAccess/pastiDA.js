@@ -150,11 +150,12 @@ function addPasto(pasto) {
 }
 
 function getPastoById (pasto) {
-
   var res = false;
-  for (var i = 0; i < pasti.length; i++) {
-    if (pasti[i].id === pasto.id){
+  var found = false;
+  for (var i = 0; i < pasti.length && !found; i++) {
+    if (pasti[i].id == pasto.id){
       res = pasti[i];
+      found = true;
     }
   }
   return res;
@@ -171,8 +172,12 @@ exports.cleanPasti = cleanPasti;
 
 //DEFAULT VALUES
 var categoria_default = categorieDA.getCategoriaByNome('Primo');
-var pasto_default_1 = new Pasto(1, 'Pasta in bianco', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_default);
-var pasto_default_2 = new Pasto(2, 'Pasta in rosso', 'Piatto semplice', 'fotoURL', 'videoURL', categoria_default);
+var pasto_default_1 = new Pasto(1, 'Tagliatelle', 'Piatto semplice', 'tagliatelle_fresche.jpg', 'videoURL', categoria_default);
+var pasto_default_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'spaghetti_pomodoro.jpg', 'videoURL', categoria_default);
+var pasto_default_3 = new Pasto(3, 'Passato di verdura', 'Piatto semplice', 'passato_verdura.jpg', 'videoURL', categoria_default);
 
 addPasto(pasto_default_1);
 addPasto(pasto_default_2);
+addPasto(pasto_default_3);
+
+

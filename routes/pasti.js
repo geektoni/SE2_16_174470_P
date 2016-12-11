@@ -1,23 +1,30 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET request route */
+var pastiController = require('../controllers/pastiController.js');
+
+/* GET index pasti */
 router.get('/', function(req, res, next) {
 
 });
 
+/* GET show page of pasto specified by its id*/
+router.get('/:id', function(req, res, next) {
+    pastiController.show(req,res);
+});
+
 /* POST request route */
-router.post('/pasti/', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
 });
 
 /* PUT request route */
-router.put('/pasti/', function(req, res, next) {
+router.put('/', function(req, res, next) {
 
 });
 
 /* DELETE request route */
-router.delete('/pasti/', function(req, res, next) {
+router.delete('/', function(req, res, next) {
 
 });
 

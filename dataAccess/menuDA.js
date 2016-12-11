@@ -34,22 +34,18 @@ function addScelta (pasto,data) {
         var new_scelta_s = {};
         new_scelta_s[new_settimana] = [];
         new_scelta_s[new_settimana].push(new_scelta_g);
-        console.log(JSON.stringify(new_scelta_s));
         if (menu.length > 0) {
             for (var i = 0; i < menu.length; i++) {
                 if(menu[i][new_settimana]) {
                     var found = false;
                     for (var j = 0; j < menu[i][new_settimana].length && !found; j++) {
-                        console.log("A");
                         if (menu[i][new_settimana][j][new_giorno]) {
-                            //console.log(menu[i][new_settimana][j][new_giorno]);
 
                             menu[i][new_settimana][j][new_giorno].push(pasto);
                             found = true;
                         }
                     }
                     if (!found) {
-                        //console.log(menu[i][new_settimana][j][new_giorno]);
                         menu[i][new_settimana].push(new_scelta_g);
 
                     }
@@ -68,7 +64,6 @@ function addScelta (pasto,data) {
         }
     }
 
-    console.log("");
 
     return res;
 }
@@ -183,4 +178,3 @@ addScelta(
     new Data(1, 02, 01, 2017)
 );
 
-console.log(JSON.stringify(menu));

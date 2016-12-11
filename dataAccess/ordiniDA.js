@@ -1,3 +1,5 @@
+var ordini = [];
+
 function addOrdine(ordine) {
 
 }
