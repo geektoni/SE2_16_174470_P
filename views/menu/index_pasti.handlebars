@@ -3,11 +3,7 @@
         <h1 id="giorno">{{giorno}}</h1>
     </div>
 {{#each menu}}
-    {{#if @last}}
-        <div id="last_row" class="categoria_row">
-    {{else}}
-        <div class="categoria_row">
-    {{/if}}
+    <div class="categoria_row">
         <div class="row">
             <h2 class="header">{{nome}}</h2>
         </div>
@@ -33,22 +29,26 @@
     </div>
 {{/each}}
 <!-- Modale per ottenere maggiori informazioni-->
-<div id ="informazioni" class="modal fade" tabindex="-1" role="dialog">
+<div id="informazioni" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Ottenere maggiori informazioni?</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#conferma">SI</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#conferma">No</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#conferma">SI
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal"
+                        data-target="#conferma">No
+                </button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- Modale per confermare la scelta -->
 
-<div id ="conferma" class="modal fade" tabindex="-1" role="dialog" >
+<div id="conferma" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,6 +61,19 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+</div>
+
+<div id="riepilogo" class="row">
+    {{#each menu}}
+        <div class="col-xs-10 col-sm-3 col-md-3">
+            <div class="card " id="" data-toggle="modal" data-target="#informazioni">
+                <img class="card-img-top photo" src="" alt="Card image">
+                <div class="card-block ">
+                    <h4 class="card-title">A</h4>
+                </div>
+            </div>
+        </div>
+    {{/each}}
 </div>
 
 

@@ -19,7 +19,7 @@ router.put('/update', function(req, res) {
   ordiniController.updateOrdine(req,res);
 });
 
-router.get('/:giorno_id/riepilogo', function(req, res) {
+router.get('/riepilogo/:giorno', function(req, res) {
   ordiniController.getRiepilogo(req,res);
 });
 

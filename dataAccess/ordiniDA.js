@@ -13,7 +13,7 @@ function addOrdine(ordine) {
         for (var i=0; i < tmp_ordini.length; i++ ) {
             if (tmp_ordini[i].data === data){
                 var found = false;
-                for (var j=0; j < tmp_ordini.length && !found; j++ ){
+                for (var j=0; j < tmp_ordini[i].pasti.length && !found; j++ ){
                     if (tmp_ordini[i].pasti[j] === pasto){
                         found = true;
                     }
@@ -42,8 +42,18 @@ function updateOrdine(ordine) {
 
 }
 
-function getOrdineByGiorno (giorno) {
-
+function getOrdiniByGiorno (giorno) {
+    var res = false;
+    console.log(giorno);
+    var data = giorno.data;
+    for (var i=0; i < tmp_ordini.length; i++ ) {
+        if (tmp_ordini[i].data === data){
+            res = {};
+                res["giorno"] = data;
+                res["scelte"] = tmp_ordini[i].pasti ;
+            }
+    }
+    return res;
 }
 
 function cleanOrdini() {
@@ -57,5 +67,6 @@ function cleanTmpOrdini() {
 
 exports.addOrdine = addOrdine;
 exports.createOrdine = createOrdine;
+exports.getOrdiniByGiorno = getOrdiniByGiorno;
 exports.cleanOrdini = cleanOrdini;
 exports.cleanTmpOrdini = cleanTmpOrdini;

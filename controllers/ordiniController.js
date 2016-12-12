@@ -39,13 +39,17 @@ function updateOrdine (req,res) {
 /*
 */
 function getRiepilogo (req,res) {
-  var giorno = req.params.giorno_id;
-  var scelte = ordiniDA.getOrdineByGiorno(giorno);
+  var giorno = req.params.giorno;
+  console.log(giorno);
+  var data = new Ordine(giorno);
+  var scelte = ordiniDA.getOrdiniByGiorno(data);
   if (scelte) {
-
+      res.send(scelte);
   } else {
     var error = "Giorno Not Found";
-    res.render('error',error);
+      res.render('error', {
+          error: error
+      });
   }
 }
 

@@ -1,7 +1,23 @@
 //JQuery
 
-//Selezione del pasto
+// Initialization
+
+// Pasto selezionato
 var pasto_id;
+
+//Display dei pasti per categoria
+var categorie_rows = $(".categoria_row");
+
+//Mostra solo la lista della prima categoria
+
+categorie_rows.each(function (index,elem) {
+    if (index != 0){
+        $(elem).hide();
+    }
+});
+
+//Nasconde la sezione del riepilogo
+$("#riepilogo").hide();
 
 $(".card").mouseover(function () {
     $(this).css({"border": "1px solid black"});
@@ -20,44 +36,57 @@ $("#informazioni .btn-primary").click(function () {
     location.href="/pasti/"+pasto_id;
 });
 
-//Display dei pasti per categoria
-var categorie_rows = $(".categoria_row");
-
-//Mostra solo la lista della prima categoria
-
-categorie_rows.each(function (index,elem) {
-    if (index != 0){
-        $(elem).hide();
-    }
-});
-
 //Conferma scelta pasto
 
 $("#conferma .btn-primary").click(function () {
-    // Display della prossima categoria
+    var found = false;
+    var next_index = 0;
+    categorie_rows.each(function (index,elem) {
+        if ($(elem).css('display') != 'none') {
+            $(elem).hide();
+            if ((index + 1) < categorie_rows.length ){
+                next_index = index + 1;
+                found = true;
+            }
 
-    // Costruisco il JSON di richiesta per l'aggiunta della scelta
+        }
+    });
+
     var data = {
         data : $("#giorno").text(),
         pasto_id : pasto_id
     };
 
     $.post('/ordini/add',data,function () {
-        console.log(data);
-       console.log("added");
-        var next_elem;
-        categorie_rows.each(function (index,elem) {
-            if ($(elem).css('display') != 'none') {
-                $(elem).hide();
-                next_elem = index+1;
-            }
-        });
 
-        //Mostro l'elemento successivo
-        categorie_rows.eq(next_elem).show();
+        if (found) {
+            //Mostro l'elemento successivo
+            categorie_rows.eq(next_index).show();
+        } else {
+            get_riepilogo();
+        }
     });
 
+
+
+
 });
+
+var get_riepilogo = function () {
+
+    $("#riepilogo").show();
+
+    giorno = $("#giorno").text(),
+
+    $.get('/ordini/riepilogo/'+giorno, function (data) {
+        console.log(data.scelte);
+        displayScelte(data);
+    })
+};
+
+function displayScelte (scelte) {
+
+};
 
 
 
