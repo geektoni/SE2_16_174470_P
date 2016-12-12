@@ -3,6 +3,7 @@
         <h1>{{giorno}}</h1>
     </div>
 {{#each menu}}
+    <div class="categoria_row">
         <div class="row">
             <h2 class="header">{{nome}}</h2>
         </div>
@@ -11,7 +12,7 @@
             <div class="row">
         {{/if_open_row}}
             <div class="col-xs-10 col-sm-3 col-md-3">
-                <div class="card " id="{{id}}" data-toggle="modal" data-target="#informazioni">
+                <div class="card" id="{{id}}" data-toggle="modal" data-target="#informazioni">
                     <img class="card-img-top photo" src="/images/{{fotoURL}}" alt="Card image">
                     <div class="card-block">
                         <h4 class="card-title">{{nome}}</h4>
@@ -25,6 +26,7 @@
             </div>
         {{/if}}
     {{/each}}
+    </div>
 {{/each}}
 <!-- Modale per ottenere maggiori informazioni-->
 <div id ="informazioni" class="modal fade" tabindex="-1" role="dialog">
@@ -35,7 +37,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#conferma">SI</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#conferma">No</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
