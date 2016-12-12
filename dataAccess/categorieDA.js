@@ -56,8 +56,7 @@ function getCategoriaByNome(categoria){
 }
 
 function cleanCategorie () {
-  var new_categorie = [];
-  categorie = new_categorie;
+  categorie = [];
 }
 
 exports.isValid = isValid;

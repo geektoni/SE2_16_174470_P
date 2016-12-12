@@ -1,9 +1,13 @@
 <div class="container">
     <div class="row">
-        <h1>{{giorno}}</h1>
+        <h1 id="giorno">{{giorno}}</h1>
     </div>
 {{#each menu}}
-    <div class="categoria_row">
+    {{#if @last}}
+        <div id="last_row" class="categoria_row">
+    {{else}}
+        <div class="categoria_row">
+    {{/if}}
         <div class="row">
             <h2 class="header">{{nome}}</h2>
         </div>

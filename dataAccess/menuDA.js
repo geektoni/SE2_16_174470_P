@@ -144,8 +144,7 @@ function getPastiByGiorno (data) {
 }
 
 function cleanMenu () {
-    var new_menu = [];
-    menu = new_menu;
+    menu = [];
 }
 
 exports.addScelta = addScelta;

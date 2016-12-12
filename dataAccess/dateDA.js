@@ -164,8 +164,7 @@ function toString(data) {
 }
 
 function cleanDate () {
-  var new_date = [];
-  date = new_date;
+  date = [];
 }
 
 exports.isValid = isValid;
