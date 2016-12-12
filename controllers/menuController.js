@@ -4,6 +4,8 @@ var pastiDA = require('../dataAccess/pastiDA.js');
 
 var Pasto = require('../models/pasto.js');
 var Data = require('../models/data.js');
+
+require('../helpers/ordini_list');
 /*
 */
 // function indexGiorniByUserId (id) {
@@ -21,7 +23,6 @@ function indexGiorni (req,res) {
   var giorni = menuDA.getAllGiorni(numero);
   if (giorni){
       var result = {days: giorni};
-      console.log(giorni);
       res.render('menu/index_giorni',result);
   } else {
       var error = "Settimana not found";
@@ -29,9 +30,6 @@ function indexGiorni (req,res) {
         error: error
       })
   }
-
-  //console.log(JSON.stringify(giorni));
-
 }
 
 /*
@@ -42,8 +40,6 @@ function indexPastiByGiorno (req,res) {
     var data = new Data(settimana,giorno[0],giorno[1],giorno[2]);
     if (dateDA.isValid(data)){
         var menu_del_giorno = menuDA.getPastiByGiorno(data);
-        console.log("MENU") ;
-        console.log(JSON.stringify(menu_del_giorno)) ;
         if (menu_del_giorno){
             res.render('menu/index_pasti',menu_del_giorno);
         } else {

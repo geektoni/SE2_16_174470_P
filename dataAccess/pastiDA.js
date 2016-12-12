@@ -161,8 +161,7 @@ function getPastoById (pasto) {
   return res;
 }
 function cleanPasti () {
-  var new_pasti = [];
-  pasti = new_pasti;
+  pasti = [];
 }
 
 exports.isValid = isValid;

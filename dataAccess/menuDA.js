@@ -144,8 +144,7 @@ function getPastiByGiorno (data) {
 }
 
 function cleanMenu () {
-    var new_menu = [];
-    menu = new_menu;
+    menu = [];
 }
 
 exports.addScelta = addScelta;
@@ -168,11 +167,11 @@ var categoria_default_3 = new Categoria("Dessert");
 var pasto_default_1 = new Pasto(1, 'Tagliatelle', 'Piatto semplice', 'tagliatelle_fresche.jpg', 'videoURL', categoria_default_1);
 var pasto_default_2 = new Pasto(2, 'Pasta al pomodoro', 'Piatto semplice', 'spaghetti_pomodoro.jpg', 'videoURL', categoria_default_1);
 var pasto_default_3 = new Pasto(3, 'Passato di verdura', 'Piatto semplice', 'passato_verdura.jpg', 'videoURL', categoria_default_1);
-var pasto_default_4 = new Pasto(4, 'Pasto 4', 'Piatto semplice', 'gnocchi_pomodoro.jpg', 'videoURL', categoria_default_1);
-var pasto_default_5 = new Pasto(5, 'Pasto 5', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
-var pasto_default_6 = new Pasto(6, 'Pasto 6', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
-var pasto_default_7 = new Pasto(7, 'Pasto 7', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
-var pasto_default_8 = new Pasto(8, 'Pasto 8', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_1);
+var pasto_default_4 = new Pasto(4, 'Pasto 4', 'Piatto semplice', 'gnocchi_pomodoro.jpg', 'videoURL', categoria_default_2);
+var pasto_default_5 = new Pasto(5, 'Pasto 5', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_2);
+var pasto_default_6 = new Pasto(6, 'Pasto 6', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_2);
+var pasto_default_7 = new Pasto(7, 'Pasto 7', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_3);
+var pasto_default_8 = new Pasto(8, 'Pasto 8', 'Piatto semplice', 'pasto.jpg', 'videoURL', categoria_default_3);
 
 addScelta(pasto_default_1,giorno_default_1);
 addScelta(pasto_default_2,giorno_default_1);

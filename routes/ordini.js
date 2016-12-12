@@ -3,19 +3,23 @@ var router = express.Router();
 
 var ordiniController = require('../controllers/ordiniController.js');
 
-router.get('/:giorno/edit', function(req, res, next) {
+router.get('/edit/:giorno_id', function(req, res, next) {
   ordiniController.editOrdine(req,res);
 });
 
-router.post('/:giorno/create', function(req, res, next) {
+router.post('/add',function (req,res) {
+    ordiniController.addOrdine(req,res);
+});
+
+router.post('/create', function(req, res) {
   ordiniController.createOrdine(req,res);
 });
 
-router.put('/:giorno/update', function(req, res, next) {
+router.put('/update', function(req, res) {
   ordiniController.updateOrdine(req,res);
 });
 
-router.get('/:giorno/riepilogo', function(req, res, next) {
+router.get('/:giorno_id/riepilogo', function(req, res) {
   ordiniController.getRiepilogo(req,res);
 });
 

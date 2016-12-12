@@ -26,8 +26,12 @@ describe("Menu DA Test", function () {
 
     describe('Add valid scelta test', function () {
 
-        it("should add a new scelta", function () {
+        beforeEach(function (done) {
             cleanDB();
+            done();
+        });
+
+        it("should add a new scelta", function () {
             var categoria_test = new Categoria("Terzo");
             categorieDA.addCategoria(categoria_test);
             categoria_test = categorieDA.getCategoriaByNome(categoria_test.nome);
@@ -54,8 +58,12 @@ describe("Menu DA Test", function () {
 
         var settimana_test = new Data(1);
 
-        it("should return all giorni when given a settimana", function () {
+        beforeEach(function (done) {
             cleanDB();
+            done();
+        });
+
+        it("should return all giorni when given a settimana", function () {
             dateDA.addData(giorno_test_1);
             dateDA.addData(giorno_test_2);
             //Lunedi
@@ -75,7 +83,6 @@ describe("Menu DA Test", function () {
         });
 
         it("should return false list if settimana not found", function () {
-            cleanDB();
             dateDA.addData(giorno_test_1);
             var wrong_settimana = new Data(3);
             var res = menuDA.getAllGiorni(wrong_settimana);
@@ -92,8 +99,12 @@ describe("Menu DA Test", function () {
 
         var settimana_test = new Data(1);
 
-        it("should return all pasti of a given giorno", function () {
+        beforeEach(function (done) {
             cleanDB();
+            done();
+        });
+
+        it("should return all pasti of a given giorno", function () {
             categorieDA.addCategoria(categoria_test_1);
             categorieDA.addCategoria(categoria_test_2);
             dateDA.addData(giorno_test_1);
@@ -121,7 +132,6 @@ describe("Menu DA Test", function () {
         });
 
         it("should return empty list if giorno not found", function () {
-            cleanDB();
             var data_not_exist = new Data(1, 5, 7, 2020);
             var res = menuDA.getPastiByGiorno(data_not_exist);
 
