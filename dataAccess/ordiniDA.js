@@ -1,5 +1,7 @@
 var ordini = [];
 
+var tmp_ordini = [];
+
 function addOrdine(ordine) {
 
 }

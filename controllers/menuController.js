@@ -4,6 +4,8 @@ var pastiDA = require('../dataAccess/pastiDA.js');
 
 var Pasto = require('../models/pasto.js');
 var Data = require('../models/data.js');
+
+require('../helpers/ordini_list');
 /*
 */
 // function indexGiorniByUserId (id) {
@@ -29,9 +31,6 @@ function indexGiorni (req,res) {
         error: error
       })
   }
-
-  //console.log(JSON.stringify(giorni));
-
 }
 
 /*

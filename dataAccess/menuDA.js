@@ -181,7 +181,7 @@ addScelta(pasto_default_4,giorno_default_1);
 addScelta(pasto_default_5,giorno_default_1);
 addScelta(pasto_default_6,giorno_default_1);
 addScelta(pasto_default_7,giorno_default_1);
-addScelta(pasto_default_8,giorno_default_1);
+//addScelta(pasto_default_8,giorno_default_1);
 
 addScelta(pasto_default_1,giorno_default_2);
 addScelta(pasto_default_4,giorno_default_2);
