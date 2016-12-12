@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b66e897-485d-4ce9-b219-6e3a26caa938" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAccess/menuDA.js" afterPath="$PROJECT_DIR$/dataAccess/menuDA.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/menu/index_giorni.js" afterPath="$PROJECT_DIR$/public/javascripts/menu/index_giorni.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/ordini/ordine.js" afterPath="$PROJECT_DIR$/public/javascripts/ordini/ordine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/menu/index_giorni.handlebars" afterPath="$PROJECT_DIR$/views/menu/index_giorni.handlebars" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/menu/index_pasti.handlebars" afterPath="$PROJECT_DIR$/views/menu/index_pasti.handlebars" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,51 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index_pasti.handlebars" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index_pasti.handlebars" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/menu/index_pasti.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index_giorni.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/menu/index_giorni.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menuController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/menuController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-298">
-              <caret line="32" column="3" lean-forward="false" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menuDA.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dataAccess/menuDA.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="180" column="44" lean-forward="true" selection-start-line="180" selection-start-column="44" selection-end-line="180" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ordine.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/ordini/ordine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -150,15 +110,15 @@
         <option value="$PROJECT_DIR$/public/javascripts/ordine.js" />
         <option value="$PROJECT_DIR$/public/javascripts/users/show.js" />
         <option value="$PROJECT_DIR$/views/pasti/show.handlebars" />
-        <option value="$PROJECT_DIR$/views/menu/index_giorni.handlebars" />
-        <option value="$PROJECT_DIR$/public/javascripts/menu/index_giorni.js" />
         <option value="$PROJECT_DIR$/helpers/ordini_list.js" />
         <option value="$PROJECT_DIR$/controllers/menuController.js" />
         <option value="$PROJECT_DIR$/dataAccess/ordiniDA.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
-        <option value="$PROJECT_DIR$/views/menu/index_pasti.handlebars" />
-        <option value="$PROJECT_DIR$/public/javascripts/ordini/ordine.js" />
         <option value="$PROJECT_DIR$/dataAccess/menuDA.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/ordini/ordine.js" />
+        <option value="$PROJECT_DIR$/views/menu/index_giorni.handlebars" />
+        <option value="$PROJECT_DIR$/public/javascripts/menu/index_giorni.js" />
+        <option value="$PROJECT_DIR$/views/menu/index_pasti.handlebars" />
       </list>
     </option>
   </component>
@@ -591,12 +551,12 @@
       <workItem from="1481446353586" duration="542000" />
       <workItem from="1481447007148" duration="19143000" />
       <workItem from="1481527701501" duration="701000" />
-      <workItem from="1481528985234" duration="10341000" />
+      <workItem from="1481528985234" duration="11388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66567000" />
+    <option name="totallyTimeSpent" value="67614000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,34 +895,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/menu/index_giorni.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/users/show.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="26" lean-forward="true" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/menu/index_pasti.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -977,16 +913,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/ordini/ordine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        <state relative-caret-position="-37">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/menu/index_giorni.js">
+    <entry file="file://$PROJECT_DIR$/dataAccess/menuDA.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="717">
+          <caret line="180" column="44" lean-forward="true" selection-start-line="180" selection-start-column="44" selection-end-line="180" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -999,10 +935,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataAccess/menuDA.js">
+    <entry file="file://$PROJECT_DIR$/views/menu/index_giorni.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="180" column="44" lean-forward="true" selection-start-line="180" selection-start-column="44" selection-end-line="180" selection-end-column="44" />
+        <state relative-caret-position="319">
+          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/users/show.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="26" lean-forward="true" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/menu/index_giorni.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/menu/index_pasti.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -11,8 +11,12 @@ categorie_rows.each(function (index,elem) {
     }
 });
 
+
+
 //Conferma scelta pasto
+
 $("#conferma .btn-primary").click(function () {
+    // Display della prossima categoria
     var next_elem;
     categorie_rows.each(function (index,elem) {
         if ($(elem).css('display') != 'none') {
@@ -22,6 +26,9 @@ $("#conferma .btn-primary").click(function () {
     });
     console.log(next_elem);
     categorie_rows.eq(next_elem).show();
+
+
+
 });
 
 //Selezione del pasto
