@@ -15,6 +15,7 @@ function show (req, res) {
     if (pasto !== false) {
         res.render('pasti/show', pasto);
     } else {
+        res.status(404);
         var error = "Pasto Not Found";
         res.render('error', {
             error: error
