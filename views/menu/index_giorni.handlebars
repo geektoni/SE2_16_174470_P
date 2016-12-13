@@ -1,19 +1,24 @@
-<div class="container">
+<div class="container text-xs-center text-sm-center text-md-center text-lg-center">
     <div class="row">
         <div class=" col-sm-1 col-md-2 col-lg-2"></div>
-        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
-            <div class="row">
-                <h3 >Lista dei Giorni in cui puoi ordinare</h3>
-            </div>
-            <ul class="list-group">
-                {{#each days}}
-                    <li class="list-group-item">
-                        <!-- Next Feature: parametrizzare la settimana nell'ancora sottostante -->
-                        <a class ="giorno" >{{this}}</a>
-                    </li>
-                {{/each}}
-            </ul>
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+        <div class="row">
+            <h1 class="diplay-3">Lista dei Giorni in cui puoi ordinare</h1>
         </div>
+        {{#each days}}
+
+            <div class=" col-sm-6 col-md-3">
+                <div class="card ">
+                    <div class="card-header">
+                        {{@index}}
+                    </div>
+                    <a class="list-group-item list-group-item-action giorno">{{this}}</a>
+
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
         <div class=" col-sm-12 col-md-2 col-lg-2"></div>
     </div>
 </div>

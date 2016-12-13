@@ -7,7 +7,32 @@ a {
 }
 
 /* My Classes */
+
+/* Index Pasti*/
+
+.pasto {
+  max-width: 253px;
+}
+
 .photo {
   width: 100%;
-  height: 250px;
+  height: 180px;
 }
+
+/*Show Pasto*/
+
+.info_photo {
+  max-width: 50%;
+}
+
+#descrizione {
+  border: 1px solid gray;
+
+ }
+
+#avvertenze {
+
+  border: 1px solid indianred;
+
+}
+
