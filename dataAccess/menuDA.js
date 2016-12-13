@@ -66,14 +66,12 @@ function addScelta (pasto,data) {
                 } else {
                     // If the settimana wasn't added it then adds the new Scelta
                     menu.push(new_scelta_s);
-                    //Se la transazione e' andata a buon fine
                     res = true;
                 }
             }
         } else {
             // If the menu is empty it then adds the new Scelta
             menu.push(new_scelta_s)
-            //Se la transazione e' andata a buon fine
             res = true;
         }
     }
@@ -124,7 +122,7 @@ function getPastiByGiorno (data) {
                 var day = week[j][giorno];
                 if (day){
                     /*
-                     Costruisco il JSON di risposta
+                     Response JSON
 
                      {
                         "giorno" : giorno,
@@ -139,14 +137,14 @@ function getPastiByGiorno (data) {
                     res["menu"] = [];
                     var all_categorie = categorieDa.getAllCategorie();
 
-                    // Riempio il JSON con le categorie su cui dividere i pasti del giorno
+                    // Fill the JSON dividing all Pasti by their Categoria
                     for (var cat = 0; cat < all_categorie.length; cat++) {
                         var categoria = {};
                         categoria["nome"] =  all_categorie[cat].nome;
                         categoria["pasti"] = [];
                         res["menu"].push(categoria);
 
-                        // assegno i piatti alla categorie di appartenenza
+                        // Assigns meals to the respective Categorie
                         for (var k = 0; k < day.length; k++){
                             if (day[k]){
                                 nome_categoria = res["menu"][cat].nome;
