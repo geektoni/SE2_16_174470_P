@@ -15,11 +15,15 @@ router.post('/create', function(req, res) {
   ordiniController.createOrdine(req,res);
 });
 
+router.delete('/delete', function (req,res) {
+   ordiniController.deleteScelte(req,res);
+});
+
 router.put('/update', function(req, res) {
   ordiniController.updateOrdine(req,res);
 });
 
-router.get('/:giorno_id/riepilogo', function(req, res) {
+router.get('/riepilogo/:giorno', function(req, res) {
   ordiniController.getRiepilogo(req,res);
 });
 
