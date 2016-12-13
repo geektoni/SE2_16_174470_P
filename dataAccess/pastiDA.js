@@ -113,7 +113,11 @@ function validateVideoURL (pasto) {
   return res;
 }
 
-
+/**
+ * This function checks if the Pasto object is valid
+ * @param pasto
+ * @return res if the pasto has passed all validation tests
+ **/
 function isValid(pasto) {
     var res = true;
 
@@ -136,6 +140,13 @@ function isValid(pasto) {
     return res;
 }
 
+/**
+ * This function tries to add a Pasto
+ * It first checks if the parameter is valid and then if it does already exist.
+ * If not, it then adds the new data
+ * @param pasto the new pasto to be added
+ * @return res if the data has been added or not
+ **/
 function addPasto(pasto) {
   var res = false;
   if (isValid(pasto)){
@@ -149,6 +160,11 @@ function addPasto(pasto) {
   return res;
 }
 
+/**
+ * This function returns a Pasto specified by its id
+ * @param pasto
+ * @return res the pasto if found
+ **/
 function getPastoById (pasto) {
   var res = false;
   var found = false;

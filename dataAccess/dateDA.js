@@ -2,6 +2,11 @@ var Data = require('../models/data.js');
 
 var date = [];
 
+/**
+ * This function checks if the Data's settimana is correct
+ * @param data
+ * @return res if the settimana is correct or not
+ **/
 function validateSettimana (data) {
   var res = false;
   var error;
@@ -19,6 +24,11 @@ function validateSettimana (data) {
   return res;
 }
 
+/**
+ * This function checks if the Data's giorno is correct
+ * @param data
+ * @return res if the giorno is correct or not
+ **/
 function validateGiorno (data) {
   var res = false;
   var error;
@@ -27,6 +37,11 @@ function validateGiorno (data) {
     data.errors.push(error);
   }
 
+    /**
+     * This function checks if the Data's giorno is correct
+     * @param data
+     * @return res if the giorno is correct or not
+     **/
   if (data.giorno === "") {
     error = "Giorno is empty";
     data.errors.push(error);
@@ -37,6 +52,11 @@ function validateGiorno (data) {
   return res;
 }
 
+/**
+ * This function checks if the Data's mese is correct
+ * @param data
+ * @return res if the mese is correct or not
+ **/
 function validateMese (data) {
   var res = false;
   var error;
@@ -54,6 +74,11 @@ function validateMese (data) {
   return res;
 }
 
+/**
+ * This function checks if the Data's anno is correct
+ * @param data
+ * @return res if the anno is correct or not
+ **/
 function validateAnno (data) {
   var res = false;
   var error;
@@ -71,6 +96,11 @@ function validateAnno (data) {
   return res;
 }
 
+/**
+ * This function checks if the Data object is valid
+ * @param data
+ * @return res if the data has passed all validation tests
+ **/
 function isValid(data){
   var res = true;
 
@@ -89,6 +119,13 @@ function isValid(data){
   return res;
 }
 
+/**
+ * This function tries to add a Data
+ * It first checks if the parameter is valid and then if it does already exist.
+ * If not, it then adds the new data
+ * @param data the new data to be added
+ * @return res if the data has been added or not
+ **/
 function addData(data) {
   var res = false;
   var settimana = data.settimana.toString();
@@ -97,10 +134,13 @@ function addData(data) {
   new_data[settimana].push(data);
 
   if (isValid(data)){
+      // Checks if no data were added or if the Settimana is not already inside
       if (date.length <= 0 || !getSettimana(data) ) {
           date.push(new_data);
           res = true;
+        // If the Settimana is already inside it checks if the data is already inside into an existing Settimana
       } else if(!getGiornoBySettimana(data)) {
+          // If the data is not inside then it adds it
           for (var i = 0; i < date.length; i++) {
               date[i][settimana].push(data);
           }
@@ -110,6 +150,11 @@ function addData(data) {
   return res;
 }
 
+/**
+ * This function returns the settimana specified
+ * @param data the data to be found
+ * @return res the data if found
+ **/
 function getSettimana(data) {
   res = false;
   for (var i = 0; i < date.length; i++) {
@@ -121,16 +166,13 @@ function getSettimana(data) {
   return res;
 }
 
-function getDateBySettimana(settimana) {
-  var res = false;
-  for (var i=0; i < date.length; i++){
-	  if (date[i][settimana]){
-		  res = date[i][settimana];
-	  }
-  }
-  return res;
-}
 
+
+/**
+ * This function returns a Giorno associated with a Settimana specified
+ * @param settimana
+ * @return res the giorno associated with that settimana if found
+ **/
 function getGiornoBySettimana(data){
   var res = false;
   var settimana = data.settimana;
@@ -147,6 +189,11 @@ function getGiornoBySettimana(data){
   return res;
 }
 
+/**
+ * This function returns a Giorno with the correct sintax removing the '-' dividers
+ * @param data
+ * @return res the giorno parsed
+ **/
 function parseData (data) {
     var res = "";
     if (data.length > 6){
@@ -155,6 +202,11 @@ function parseData (data) {
     return res;
 }
 
+/**
+ * This function returns a Giorno with the correct syntax reading the parameter properties
+ * @param data
+ * @return res the giorno with a more readable syntax
+ **/
 function toString(data) {
   var separator = "-";
   var data =  data.giorno.toString()+separator+
@@ -170,7 +222,6 @@ function cleanDate () {
 exports.isValid = isValid;
 exports.addData = addData;
 exports.getSettimana = getSettimana;
-exports.getDateBySettimana = getDateBySettimana;
 exports.getGiornoBySettimana = getGiornoBySettimana;
 exports.parseData = parseData;
 exports.toString = toString;
