@@ -61,21 +61,18 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-</div>
+
 
 <div id="riepilogo" class="row">
-    {{#each menu}}
-        <div class="col-xs-10 col-sm-3 col-md-3">
-            <div class="card " id="" data-toggle="modal" data-target="#informazioni">
-                <img class="card-img-top photo" src="" alt="Card image">
-                <div class="card-block ">
-                    <h4 class="card-title">A</h4>
-                </div>
-            </div>
-        </div>
-    {{/each}}
+    <div class="row">
+        <h2 class="header">Riepilogo</h2>
+    </div>
+    <div class="row">
+        <h2 class="header">Confermare? </h2>
+        <button id="crea" type="button" class="btn btn-primary" >SI</button>
+        <button id="annulla" type="button" class="btn btn-default" >No</button>
+    </div>
 </div>
-
-
+</div>
 <script src="/javascripts/ordini/ordine.js" type="text/javascript"></script>
 

@@ -1,7 +1,7 @@
 var Ordine = require('../../models/ordine.js');
 var ordiniDA = require('../../dataAccess/ordiniDA.js');
 
-xdescribe("Add Ordine Test",function () {
+describe("Add Ordine Test",function () {
     var pasto_id_test = 1;
     var pasto_id_test_2 = 2;
     var giorno_test = "1-1-2017";

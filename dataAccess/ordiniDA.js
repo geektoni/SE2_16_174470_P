@@ -48,7 +48,7 @@ function addOrdine(ordine) {
     return res;
 }
 
-function createOrdine(ordine) {
+function createOrdine() {
     ordini = tmp_ordini;
     cleanTmpOrdini();
 }

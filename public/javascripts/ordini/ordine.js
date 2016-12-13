@@ -79,17 +79,49 @@ var get_riepilogo = function () {
     giorno = $("#giorno").text(),
 
     $.get('/ordini/riepilogo/'+giorno, function (data) {
-        console.log(data.scelte);
+        console.log(data);
+        console.log(typeof data);
         displayScelte(data);
     })
 };
 
-function displayScelte (scelte) {
+function displayScelte (data) {
 
-};
+    var id,img,nome;
+    var lista_scelte = data.scelte;
 
+    for (var i = 0; i < lista_scelte.length; i++) {
+        id = lista_scelte[i].id;
+        img = lista_scelte[i].fotoURL;
+        nome = lista_scelte[i].nome;
+        var res = " <div class=\"col-xs-10 col-sm-3 col-md-3\"> "+
+                        "<div class=\"card \" id=\""+id+"\">" +
+                            "<img class=\"card-img-top photo\" src=\"/images/"+img+"\" alt=\"Card image\">" +
+                            "<div class=\"card-block \">"+
+                                "<h4 class=\"card-title\">"+nome+"</h4>" +
+                            "</div>" +
+                        "</div>" +
+                    "</div>";
+        $("#riepilogo").append(res);
+    }
+}
 
+$("#crea").click(function () {
+    $.post('/ordini/create',function () {
+        alert("Ordine aggiunto con successo!");
+        location.href='/';
+    })
+});
 
+$("#annulla").click(function () {
+    $.ajax({
+        url: '/ordini/delete',
+        type: 'DELETE',
+        success: function() {
+            location.reload();
+        }
+    });
+});
 
 
 

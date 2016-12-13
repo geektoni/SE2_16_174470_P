@@ -19,8 +19,8 @@ function addOrdine(req,res) {
 /*
 */
 function createOrdine (req,res) {
-    ordiniDA.addOrdine();
-    res.send("Done");
+    ordiniDA.createOrdine();
+    res.send("Created");
 }
 
 /*
@@ -35,6 +35,11 @@ function updateOrdine (req,res) {
   ordiniDA.updateOrdine(ordine);
 }
 
+function deleteScelte (req,res) {
+  ordiniDA.cleanTmpOrdini();
+  res.send("Deleted");
+}
+
 /*
 */
 function getRiepilogo (req,res) {
@@ -42,7 +47,7 @@ function getRiepilogo (req,res) {
 
   var data = new Ordine(giorno);
   var scelte = ordiniDA.getOrdiniByGiorno(data);
-    console.log(scelte);
+    //console.log(scelte);
   if (scelte) {
       res.send(scelte);
   } else {
@@ -58,3 +63,4 @@ exports.createOrdine = createOrdine;
 exports.editOrdine = editOrdine;
 exports.updateOrdine = updateOrdine;
 exports.getRiepilogo = getRiepilogo;
+exports.deleteScelte = deleteScelte;
