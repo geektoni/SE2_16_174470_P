@@ -24,7 +24,7 @@ $(".card").mouseover(function () {
 });
 
 $(".card").mouseleave(function () {
-    $(this).css({"border": "0px"});
+    $(this).css({"border": "1px solid rgba(0,0,0,.125)"});
 });
 
 $(".card").click(function () {
@@ -92,8 +92,8 @@ function displayScelte (data) {
         id = lista_scelte[i].id;
         img = lista_scelte[i].fotoURL;
         nome = lista_scelte[i].nome;
-        var res = " <div class=\"col-xs-10 col-sm-3 col-md-3\"> "+
-                        "<div class=\"card \" id=\""+id+"\">" +
+        var res = " <div class=\"col-xs-12 col-sm-4 col-md-3\"> "+
+                        "<div class=\"card\" id=\""+id+"\">" +
                             "<img class=\"card-img-top photo\" src=\"/images/"+img+"\" alt=\"Card image\">" +
                             "<div class=\"card-block \">"+
                                 "<h4 class=\"card-title\">"+nome+"</h4>" +
