@@ -158,8 +158,10 @@ function getPastoById (pasto) {
       found = true;
     }
   }
+
   return res;
 }
+
 function cleanPasti () {
   pasti = [];
 }

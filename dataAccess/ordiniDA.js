@@ -1,6 +1,21 @@
-var ordini = [];
+var pastiDA = require('../dataAccess/pastiDA.js');
+var Pasto = require('../models/pasto.js');
+// Struttura dati contenente la lista degli ordini suddivisi per giorno
+// Ogni pasto viene recuperato tramite pastiDA utilizzando l'id salvato
 
+var ordini = [];
 var tmp_ordini = [];
+
+/*
+    ordini = [
+        {   "giorno" : giorno,
+            "scelte" : [pasto_id, pasto_id, pasto_id]
+        },
+        ...
+    ]
+ */
+
+
 
 function addOrdine(ordine) {
     var res = false;
@@ -44,15 +59,24 @@ function updateOrdine(ordine) {
 
 function getOrdiniByGiorno (giorno) {
     var res = false;
-    console.log(giorno);
+
     var data = giorno.data;
     for (var i=0; i < tmp_ordini.length; i++ ) {
         if (tmp_ordini[i].data === data){
+
             res = {};
-                res["giorno"] = data;
-                res["scelte"] = tmp_ordini[i].pasti ;
+            res["giorno"] = data;
+            res["scelte"] = [] ;
+
+            for (var j=0; j < tmp_ordini[i].pasti.length; j++ ){
+                var pasto = new Pasto (tmp_ordini[i].pasti[j]);
+                pasto = pastiDA.getPastoById(pasto);
+                res["scelte"].push(pasto);
             }
+
+        }
     }
+
     return res;
 }
 
