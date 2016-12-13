@@ -6,15 +6,12 @@ var Pasto = require('../models/pasto.js');
 var Data = require('../models/data.js');
 
 require('../helpers/ordini_list');
-/*
-*/
-// function indexGiorniByUserId (id) {
-  // Functione che ritorna i giorni in cui ordinare pasti
-  // in base all'utente loggato
-  // Questa funzione prevede una modellazione leggermente diversa
-  // del DB
-// }
 
+/**
+ * This function returns all Giorni of a given Settimana specified in the req parameter
+ * @param number  the corresponding number of the Settimana
+ * @return giorni a list of Giorni of the given Settimana
+ **/
 function indexGiorni (req,res) {
 
   var numero = new Data();
@@ -25,6 +22,7 @@ function indexGiorni (req,res) {
       var result = {days: giorni};
       res.render('menu/index_giorni',result);
   } else {
+      res.setStatus(404);
       var error = "Settimana not found";
       res.render('error', {
         error: error
@@ -32,8 +30,12 @@ function indexGiorni (req,res) {
   }
 }
 
-/*
-*/
+/**
+ * This function returns all Pasti of a given Giorno specified in the req parameter
+ * @param settimama  the corresponding number of the Settimana
+ * @param giorno  the corresponding number of Giorno
+ * @return pasti a list of Pasti of the given Giorno
+ **/
 function indexPastiByGiorno (req,res) {
     var settimana = req.params.numero;
     var giorno = dateDA.parseData(req.params.data);

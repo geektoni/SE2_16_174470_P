@@ -5,12 +5,12 @@ var categorieDa = require('../dataAccess/categorieDA.js');
 /*Struttura menu:
 
  { "numero_settimana":
- [ {"giorno" :
- ["pasto", "pasto", ... ] },
- {"giorno":
- ["pasto", "pasto", ... ] },
- ...
- ]
+    [ {"giorno" :
+        ["pasto", "pasto", ... ] },
+    {"giorno":
+        ["pasto", "pasto", ... ] },
+    ...
+    ]
  }
 
  */
@@ -19,6 +19,14 @@ var menu = [];
 
 // ---------------------------------------------
 
+/**
+ * This function tries to add a Scelta composed by a Pasto and a Data when this Pasto is coocked
+ * It first checks if the parameters are valid and then if they don't already exist.
+ * If not, it then adds the new Scelta
+ * @param pasto the new pasto to be added
+ * @param data the new data to be associated with the pasto specified
+ * @return res if the Scelta has been added or not
+ **/
 function addScelta (pasto,data) {
     var res = false;
     var new_settimana = data.settimana.toString();
@@ -27,6 +35,7 @@ function addScelta (pasto,data) {
     // controllo se new_giorno is valid
 
     if (pastiDA.isValid(pasto) && dateDA.isValid(data)){
+        // Builds the new Scelta object
         var new_scelta_g = {};
         new_scelta_g[new_giorno] = []
         new_scelta_g[new_giorno].push(pasto);
@@ -34,30 +43,35 @@ function addScelta (pasto,data) {
         var new_scelta_s = {};
         new_scelta_s[new_settimana] = [];
         new_scelta_s[new_settimana].push(new_scelta_g);
+
         if (menu.length > 0) {
+            // Find the settimana that corresponds with the data specified
             for (var i = 0; i < menu.length; i++) {
                 if(menu[i][new_settimana]) {
                     var found = false;
                     for (var j = 0; j < menu[i][new_settimana].length && !found; j++) {
+                        // Tries to find if the data is already inside
                         if (menu[i][new_settimana][j][new_giorno]) {
-
+                            // if the data is already inside it then add only the new pasto
                             menu[i][new_settimana][j][new_giorno].push(pasto);
                             found = true;
                         }
                     }
                     if (!found) {
+                        //If the new Data is not inside it adds it
                         menu[i][new_settimana].push(new_scelta_g);
-
                     }
                     res = true;
 
                 } else {
-                    menu.push(new_scelta_s)
+                    // If the settimana wasn't added it then adds the new Scelta
+                    menu.push(new_scelta_s);
                     //Se la transazione e' andata a buon fine
                     res = true;
                 }
             }
         } else {
+            // If the menu is empty it then adds the new Scelta
             menu.push(new_scelta_s)
             //Se la transazione e' andata a buon fine
             res = true;
@@ -68,6 +82,11 @@ function addScelta (pasto,data) {
     return res;
 }
 
+/**
+ * This function returns all giorni of the given settimana where at leas a scelta has been specified
+ * @param data the new data to be associated with the pasto specified
+ * @return res all giorni with at leas a Scelta
+ **/
 function getAllGiorni (data) {
 
     var res = false;
@@ -88,22 +107,15 @@ function getAllGiorni (data) {
     return res;
 }
 
+/**
+ * This function returns all Pasti of the given Giorno
+ * @param data the new data
+ * @return res all pasti associated with the given Giorno
+ **/
 function getPastiByGiorno (data) {
     var res = false;
     var settimana = data.settimana.toString();
     var giorno = dateDA.toString(data);
-
-    /*
-     Costruisco il JSON di risposta
-
-     {
-     "giorno" : giorno,
-     "pasti" : [   { "Categoria" : [pasto, pasto, pasto] } ,
-     { "Categoria" : [pasto, pasto, pasto] } ,
-     ... ]
-     }
-
-     */
 
     for (var i = 0; i < menu.length; i++) {
         var week = menu[i][settimana];
@@ -111,7 +123,17 @@ function getPastiByGiorno (data) {
             for (var j = 0; j < week.length; j++) {
                 var day = week[j][giorno];
                 if (day){
-                    // Costruisco il JSON di risposta
+                    /*
+                     Costruisco il JSON di risposta
+
+                     {
+                        "giorno" : giorno,
+                        "pasti" :   [    { "Categoria" : [pasto, pasto, pasto] } ,
+                                        { "Categoria" : [pasto, pasto, pasto] } ,
+                                    ... ]
+                     }
+
+                     */
                     res = {};
                     res["giorno"] = giorno;
                     res["menu"] = [];
