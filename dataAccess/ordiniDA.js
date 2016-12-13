@@ -43,7 +43,7 @@ function addOrdine(ordine) {
             }
         }
     }
-    console.log(tmp_ordini);
+
 
     return res;
 }

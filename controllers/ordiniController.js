@@ -5,7 +5,7 @@ var Ordine = require('../models/ordine.js');
 function addOrdine(req,res) {
   var pasto_id = req.body.pasto_id;
   var giorno = req.body.data;
-  console.log(giorno);
+
   var ordine = new Ordine(giorno,pasto_id);
 
   var added = ordiniDA.addOrdine(ordine);
@@ -47,7 +47,7 @@ function getRiepilogo (req,res) {
 
   var data = new Ordine(giorno);
   var scelte = ordiniDA.getOrdiniByGiorno(data);
-    //console.log(scelte);
+
   if (scelte) {
       res.send(scelte);
   } else {

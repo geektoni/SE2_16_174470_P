@@ -79,8 +79,6 @@ var get_riepilogo = function () {
     giorno = $("#giorno").text(),
 
     $.get('/ordini/riepilogo/'+giorno, function (data) {
-        console.log(data);
-        console.log(typeof data);
         displayScelte(data);
     })
 };
