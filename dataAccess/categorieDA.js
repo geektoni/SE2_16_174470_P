@@ -2,6 +2,11 @@ var Categoria = require('../models/categoria.js');
 
 var categorie = [];
 
+/**
+ * This function checks if the Categoria'nome is correct
+ * @param categoria
+ * @return res if the name is correct or not
+ **/
 function validateNome (categoria) {
   res = false;
   var error;
@@ -21,6 +26,11 @@ function validateNome (categoria) {
   return res;
 }
 
+/**
+ * This function checks if the Categoria object is valid
+ * @param categoria
+ * @return res if the categoria has passed all validation tests
+ **/
 function isValid (categoria) {
   var res = true;
   if (!validateNome(categoria)){
@@ -29,6 +39,13 @@ function isValid (categoria) {
   return res;
 }
 
+/**
+ * This function tries to add a Categoria
+ * It first checks if the parameter is valid and then if it does already exist.
+ * If not, it then adds the new categoria
+ * @param categoria the new categoria to be added
+ * @return res if the categoria has been added or not
+ **/
 function addCategoria(categoria) {
   var res = false;
   if (isValid(categoria)){
@@ -41,10 +58,19 @@ function addCategoria(categoria) {
   return res;
 }
 
+/**
+ * This function return all categorie stored
+ * @return res categorie list
+ **/
 function getAllCateogorie () {
   return categorie;
 }
 
+/**
+ * This function returns a Categoria by the specified name
+ * @param categoria the name to find
+ * @return res if the categoria found or not
+ **/
 function getCategoriaByNome(categoria){
   var res = false;
   for (var i = 0; i < categorie.length; i++) {

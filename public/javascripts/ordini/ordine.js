@@ -1,15 +1,12 @@
-//JQuery
-
-// Initialization
+// ------------------- Initialization ---------------------
 
 // Pasto selezionato
 var pasto_id;
 
-//Display dei pasti per categoria
+//Le righe che contengono la lista dei divisi pasti per categoria
 var categorie_rows = $(".categoria_row");
 
 //Mostra solo la lista della prima categoria
-
 categorie_rows.each(function (index,elem) {
     if (index != 0){
         $(elem).hide();
@@ -19,14 +16,19 @@ categorie_rows.each(function (index,elem) {
 //Nasconde la sezione del riepilogo
 $("#riepilogo").hide();
 
+// --------------------------------------------------------
+
+// Evidenzia il pasto che si vuole selezionare
 $(".card").mouseover(function () {
     $(this).css({"border": "1px solid black"});
 });
 
+// Deseleziona il pasto precedentemente selezionato
 $(".card").mouseleave(function () {
     $(this).css({"border": "1px solid rgba(0,0,0,.125)"});
 });
 
+// Salva temporaneamente il pasto selezionato
 $(".card").click(function () {
     pasto_id = $(this).attr("id");
 });
@@ -41,6 +43,7 @@ $("#informazioni .btn-primary").click(function () {
 $("#conferma .btn-primary").click(function () {
     var found = false;
     var next_index = 0;
+    // Trova l'indice della prossima riga da mostrare e nasconde quella visibile
     categorie_rows.each(function (index,elem) {
         if ($(elem).css('display') != 'none') {
             $(elem).hide();
@@ -48,7 +51,6 @@ $("#conferma .btn-primary").click(function () {
                 next_index = index + 1;
                 found = true;
             }
-
         }
     });
 
@@ -58,20 +60,18 @@ $("#conferma .btn-primary").click(function () {
     };
 
     $.post('/ordini/add',data,function () {
-
+        // Se ci sono elementi da mostrare
         if (found) {
             //Mostro l'elemento successivo
             categorie_rows.eq(next_index).show();
         } else {
+            // Altrimenti mostra il riepilogo
             get_riepilogo();
         }
     });
-
-
-
-
 });
 
+// Chiede al backend la lista del pasti selezionati dall'utente e costruisce la vista
 var get_riepilogo = function () {
 
     $("#riepilogo").show();
@@ -83,6 +83,7 @@ var get_riepilogo = function () {
     })
 };
 
+// Costruisce la vista con il riepilogo dei pasti scelti
 function displayScelte (data) {
 
     var id,img,nome;
@@ -104,13 +105,16 @@ function displayScelte (data) {
     }
 }
 
+// Invia al backend la conferma di creazione dell'ordine
 $("#crea").click(function () {
     $.post('/ordini/create',function () {
         alert("Ordine aggiunto con successo!");
-        location.href='/';
+        // TODO: La settimana dev'esser parametrizzata
+        location.href='/settimana/1';
     })
 });
 
+// Annulla le scelte e ricomincia la procedura dall'inizio
 $("#annulla").click(function () {
     $.ajax({
         url: '/ordini/delete',

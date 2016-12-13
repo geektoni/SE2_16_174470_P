@@ -1,30 +1,29 @@
+/*
+ */
 function index (req,res) {
-    res.render('users/index',{
-        user: "Giovanni",
-    })
 }
 
 /*
 */
-function show () {
-
-}
-
-/*
-*/
-function new_ () {
+function show (req,res) {
 
 }
 
 /*
 */
-function create () {
+function new_ (req,res) {
 
 }
 
 /*
 */
-function edit () {
+function create (req,res) {
+
+}
+
+/*
+*/
+function edit (req,res) {
 
 }
 
