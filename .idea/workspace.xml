@@ -3,19 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7b66e897-485d-4ce9-b219-6e3a26caa938" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/indexController.js" afterPath="$PROJECT_DIR$/controllers/indexController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/menuController.js" afterPath="$PROJECT_DIR$/controllers/menuController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ordiniController.js" afterPath="$PROJECT_DIR$/controllers/ordiniController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/pastiController.js" afterPath="$PROJECT_DIR$/controllers/pastiController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/usersController.js" afterPath="$PROJECT_DIR$/controllers/usersController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAccess/categorieDA.js" afterPath="$PROJECT_DIR$/dataAccess/categorieDA.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAccess/dateDA.js" afterPath="$PROJECT_DIR$/dataAccess/dateDA.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAccess/menuDA.js" afterPath="$PROJECT_DIR$/dataAccess/menuDA.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAccess/pastiDA.js" afterPath="$PROJECT_DIR$/dataAccess/pastiDA.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helpers/ordini_list.js" afterPath="$PROJECT_DIR$/helpers/ordini_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/ordini/ordine.js" afterPath="$PROJECT_DIR$/public/javascripts/ordini/ordine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/homepage.handlebars" afterPath="$PROJECT_DIR$/views/homepage.handlebars" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,17 +29,27 @@
         <entry file="file://$PROJECT_DIR$/public/javascripts/ordini/ordine.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="580">
-              <caret line="122" column="30" lean-forward="true" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+              <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menuDAspec.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menuDAspec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/dataAccess/menuDAspec.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3567">
               <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -71,6 +70,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="725">
               <caret line="25" column="80" lean-forward="false" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menuDA.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataAccess/menuDA.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="587">
+              <caret line="206" column="25" lean-forward="false" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -164,9 +173,10 @@
         <option value="$PROJECT_DIR$/dataAccess/dateDA.js" />
         <option value="$PROJECT_DIR$/dataAccess/pastiDA.js" />
         <option value="$PROJECT_DIR$/dataAccess/ordiniDA.js" />
-        <option value="$PROJECT_DIR$/dataAccess/menuDA.js" />
         <option value="$PROJECT_DIR$/helpers/ordini_list.js" />
         <option value="$PROJECT_DIR$/public/javascripts/ordini/ordine.js" />
+        <option value="$PROJECT_DIR$/dataAccess/menuDA.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -415,6 +425,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SE2_16_174470_P" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SE2_16_174470_P" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -527,12 +551,12 @@
       <workItem from="1481555709644" duration="145000" />
       <workItem from="1481570871433" duration="6436000" />
       <workItem from="1481616949989" duration="13614000" />
-      <workItem from="1481645932007" duration="3482000" />
+      <workItem from="1481645932007" duration="4049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98264000" />
+    <option name="totallyTimeSpent" value="98831000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,13 +619,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dataAccess/menuDA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="82" column="2" lean-forward="false" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataAccess/dateDA.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -901,14 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataAccess/menuDA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1624">
-          <caret line="131" column="40" lean-forward="false" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataAccess/ordiniDA.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1081">
@@ -946,7 +955,7 @@
     <entry file="file://$PROJECT_DIR$/public/javascripts/ordini/ordine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
-          <caret line="122" column="30" lean-forward="true" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+          <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -955,6 +964,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3567">
           <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAccess/menuDA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="206" column="25" lean-forward="false" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
           <folding />
         </state>
       </provider>
