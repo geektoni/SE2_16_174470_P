@@ -6,7 +6,7 @@ var Pasto = require('../models/pasto.js');
 */
 function show (req, res) {
     var id = req.params.id;
-    //console.log(id);
+
     var pasto = new Pasto(id);
     pasto = pastiDA.getPastoById(pasto);
     if (pasto !== false) {
