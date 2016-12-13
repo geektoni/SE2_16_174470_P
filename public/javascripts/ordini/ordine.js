@@ -1,44 +1,44 @@
 // ------------------- Initialization ---------------------
 
-// Pasto selezionato
+// Selected Pasto
 var pasto_id;
 
-//Le righe che contengono la lista dei divisi pasti per categoria
+// Rows displaying all Pasti divided by their Categoria
 var categorie_rows = $(".categoria_row");
 
-//Mostra solo la lista della prima categoria
+// Shows only the first Categoria rows
 categorie_rows.each(function (index,elem) {
     if (index != 0){
         $(elem).hide();
     }
 });
 
-//Nasconde la sezione del riepilogo
+// Hides the Riepilogo section
 $("#riepilogo").hide();
 
 // --------------------------------------------------------
 
-// Evidenzia il pasto che si vuole selezionare
+// Highlight the wanted Pasto
 $(".card").mouseover(function () {
     $(this).css({"border": "1px solid black"});
 });
 
-// Deseleziona il pasto precedentemente selezionato
+// Deselect the Pasto choosen previously
 $(".card").mouseleave(function () {
     $(this).css({"border": "1px solid rgba(0,0,0,.125)"});
 });
 
-// Salva temporaneamente il pasto selezionato
+// Save temporary the choosen pasto
 $(".card").click(function () {
     pasto_id = $(this).attr("id");
 });
 
-//Visualizza informazioni prodotto
+// Displays Pasto's show page
 $("#informazioni .btn-primary").click(function () {
     location.href="/pasti/"+pasto_id;
 });
 
-//Conferma scelta pasto
+// Pasto choosen confirmation
 
 $("#conferma .btn-primary").click(function () {
     var found = false;
@@ -60,18 +60,18 @@ $("#conferma .btn-primary").click(function () {
     };
 
     $.post('/ordini/add',data,function () {
-        // Se ci sono elementi da mostrare
+        // If there are still elements to be displayed
         if (found) {
-            //Mostro l'elemento successivo
+            //Make the the next element visible
             categorie_rows.eq(next_index).show();
         } else {
-            // Altrimenti mostra il riepilogo
+            // Otherwise it shows the recap
             get_riepilogo();
         }
     });
 });
 
-// Chiede al backend la lista del pasti selezionati dall'utente e costruisce la vista
+// Send to the backend all choosen Pasti list
 var get_riepilogo = function () {
 
     $("#riepilogo").show();
@@ -83,7 +83,7 @@ var get_riepilogo = function () {
     })
 };
 
-// Costruisce la vista con il riepilogo dei pasti scelti
+// Builds the Riepilogo view with choosen Pasti
 function displayScelte (data) {
 
     var id,img,nome;
@@ -105,16 +105,16 @@ function displayScelte (data) {
     }
 }
 
-// Invia al backend la conferma di creazione dell'ordine
+// Send to the backend the confirmation of the order
 $("#crea").click(function () {
     $.post('/ordini/create',function () {
         alert("Ordine aggiunto con successo!");
         // TODO: La settimana dev'esser parametrizzata
-        location.href='/settimana/1';
+        location.href='/menu/settimana/1';
     })
 });
 
-// Annulla le scelte e ricomincia la procedura dall'inizio
+// Delete all Scelte and reloads the page to begin the procedure
 $("#annulla").click(function () {
     $.ajax({
         url: '/ordini/delete',
