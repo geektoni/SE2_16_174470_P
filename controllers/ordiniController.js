@@ -18,7 +18,8 @@ function addOrdine(req,res) {
   if (added) {
     res.send("Added");
   } else {
-    res.send("Not added");
+      res.status(404);
+      res.send("Not added");
   }
 }
 
@@ -62,7 +63,8 @@ function getRiepilogo (req,res) {
   if (scelte) {
       res.send(scelte);
   } else {
-    var error = "Giorno Not Found";
+      res.status(404);
+      var error = "Giorno Not Found";
       res.render('error', {
           error: error
       });

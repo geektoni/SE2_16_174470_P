@@ -22,7 +22,7 @@ function indexGiorni (req,res) {
       var result = {days: giorni};
       res.render('menu/index_giorni',result);
   } else {
-      res.setStatus(404);
+      res.status(404);
       var error = "Settimana not found";
       res.render('error', {
         error: error
@@ -45,13 +45,14 @@ function indexPastiByGiorno (req,res) {
         if (menu_del_giorno){
             res.render('menu/index_pasti',menu_del_giorno);
         } else {
-            //res.sendStatus(404);
+            res.status(404);
             var error = "Giorno not found";
             res.render('error', {
                 error: error
             });
         }
     } else {
+        res.status(404);
         var error = "Data not valid";
         res.render('error', {
             error: error
